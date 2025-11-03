@@ -34,3 +34,7 @@ text = "Play"
 [node name="InstructionsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Instructions"
+
+[node name="InstructionsPopup" type="Window" parent="."]
+oversampling_override = 1.0
+position = Vector2i(-120, 36)
