@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bjw00y1nijjgv"]
 
-[ext_resource type="PackedScene" uid="uid://bw2m6rpraye2r" path="res://mob/spawner/spawner_model.glb" id="1_bk78j"]
-[ext_resource type="Shader" uid="uid://cfnwyva3u4qeb" path="res://mob/spawner/spawner_halo.gdshader" id="2_lvlhh"]
-[ext_resource type="Material" uid="uid://bh1ego7bi1olb" path="res://mob/spawner/spawner_screen_material.tres" id="3_p6j4b"]
+[ext_resource type="PackedScene" uid="uid://bw2m6rpraye2r" path="res://mobs/spawner/spawner_model.glb" id="1_bk78j"]
+[ext_resource type="Shader" uid="uid://cfnwyva3u4qeb" path="res://mobs/spawner/spawner_halo.gdshader" id="2_lvlhh"]
+[ext_resource type="Material" uid="uid://bh1ego7bi1olb" path="res://mobs/spawner/spawner_screen_material.tres" id="3_p6j4b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rug3p"]
 render_priority = 0
