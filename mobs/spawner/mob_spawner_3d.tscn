@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://brv5ymotpcsly"]
 
-[ext_resource type="Script" uid="uid://drxb4tlrib85u" path="res://mob/spawner/mob_spawner_3d.gd" id="1_ewxdg"]
-[ext_resource type="PackedScene" uid="uid://d4j3is6uqw3m7" path="res://mob/mob.tscn" id="2_y27t3"]
-[ext_resource type="PackedScene" uid="uid://bjw00y1nijjgv" path="res://mob/spawner/spawner_model.tscn" id="3_y27t3"]
+[ext_resource type="Script" uid="uid://drxb4tlrib85u" path="res://mobs/spawner/mob_spawner_3d.gd" id="1_ewxdg"]
+[ext_resource type="PackedScene" uid="uid://d4j3is6uqw3m7" path="res://mobs/mob_1/mob.tscn" id="2_y27t3"]
+[ext_resource type="PackedScene" uid="uid://bjw00y1nijjgv" path="res://mobs/spawner/spawner_model.tscn" id="3_y27t3"]
 
 [node name="MobSpawner3D" type="Node3D"]
 script = ExtResource("1_ewxdg")

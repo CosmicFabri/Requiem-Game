@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xc2oy7gqkch5"
-path.s3tc="res://.godot/imported/spawner_text.png-cddf989d7fb9d0d1fac3e9ed8d7837e4.s3tc.ctex"
+uid="uid://ddr8smg2n8cbm"
+path.s3tc="res://.godot/imported/bat_model_bat_palette.png-f9ab47cb37fe4b2641c8407c79e18389.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://mob/spawner/spawner_text.png"
-dest_files=["res://.godot/imported/spawner_text.png-cddf989d7fb9d0d1fac3e9ed8d7837e4.s3tc.ctex"]
+source_file="res://mobs/mob_1/bat/bat_model_bat_palette.png"
+dest_files=["res://.godot/imported/bat_model_bat_palette.png-f9ab47cb37fe4b2641c8407c79e18389.s3tc.ctex"]
 
 [params]
 

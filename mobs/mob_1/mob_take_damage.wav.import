@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://bx3idpeigglls"
-path="res://.godot/imported/mob_take_damage.wav-1cdfbd77e9c3f3326daadc27788f65ff.sample"
+path="res://.godot/imported/mob_take_damage.wav-98df0e4919da8c1dfd5ec0d32f0b961e.sample"
 
 [deps]
 
-source_file="res://mob/mob_take_damage.wav"
-dest_files=["res://.godot/imported/mob_take_damage.wav-1cdfbd77e9c3f3326daadc27788f65ff.sample"]
+source_file="res://mobs/mob_1/mob_take_damage.wav"
+dest_files=["res://.godot/imported/mob_take_damage.wav-98df0e4919da8c1dfd5ec0d32f0b961e.sample"]
 
 [params]
 
