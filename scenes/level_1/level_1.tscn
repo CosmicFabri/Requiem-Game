@@ -6,12 +6,12 @@
 [ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://assets/bridge.tres" id="4_opn7a"]
 [ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="5_e74gk"]
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7jktm"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_fc0e3"]
 font_size = 56
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7jktm"]
 
 [sub_resource type="Environment" id="Environment_80nbo"]
 background_mode = 1
@@ -27,11 +27,14 @@ fog_height_density = 0.2105
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_jr17i")
 
-[node name="MobSpawner3D" parent="." instance=ExtResource("2_nubdk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.9503997, -27.9)
+[node name="Player" parent="." instance=ExtResource("5_e74gk")]
 
-[node name="MobSpawner3D" parent="MobSpawner3D" instance=ExtResource("2_nubdk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5, -0.049600303, -0.8999996)
+[node name="KillPlane" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+shape = SubResource("WorldBoundaryShape3D_7jktm")
 
 [node name="ScoreLabel" type="Label" parent="."]
 unique_name_in_owner = true
@@ -42,12 +45,11 @@ offset_bottom = 121.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_fc0e3")
 
-[node name="KillPlane" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+[node name="MobSpawner3D" parent="." instance=ExtResource("2_nubdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.9503997, -27.9)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
-shape = SubResource("WorldBoundaryShape3D_7jktm")
+[node name="MobSpawner3D" parent="MobSpawner3D" instance=ExtResource("2_nubdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5, -0.049600303, -0.8999996)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -115,8 +117,6 @@ use_collision = true
 size = Vector3(7, 10, 13)
 material = ExtResource("3_fxajv")
 
-[node name="Player" parent="." instance=ExtResource("5_e74gk")]
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.25881907, 0.9659258, 0, -0.9659258, 0.25881907, 0, 11, 0)
 shadow_enabled = true
@@ -124,5 +124,5 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80nbo")
 
-[connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
+[connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
