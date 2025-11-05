@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cogsqx2sl52u8"]
+[gd_scene load_steps=10 format=3 uid="uid://cogsqx2sl52u8"]
 
 [ext_resource type="Script" uid="uid://7rtxu0b8davg" path="res://scenes/level_2/level_2.gd" id="1_t1d0w"]
 [ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="2_6fc2c"]
 [ext_resource type="Material" uid="uid://u4l71aqvc3lq" path="res://assets/platform.tres" id="3_nqpmc"]
 [ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://assets/bridge.tres" id="4_n42qb"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="5_h8027"]
+[ext_resource type="PackedScene" uid="uid://c1cr0hdg6b81c" path="res://mobs/mob_2/mob.tscn" id="6_6fc2c"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6wgyd"]
 
@@ -40,7 +41,7 @@ script = ExtResource("1_t1d0w")
 [node name="Player" parent="." instance=ExtResource("2_6fc2c")]
 
 [node name="KillPlane" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7226548, -6.186811, -0.5745864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7226548, -2.4708781, -0.5745864)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -359,12 +360,16 @@ material = ExtResource("4_n42qb")
 
 [node name="MobSpawner3D" parent="." instance=ExtResource("5_h8027")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.41966, 1.7924166, 33.358204)
+mob_to_spawn = ExtResource("6_6fc2c")
 
 [node name="MobSpawner3D2" parent="." instance=ExtResource("5_h8027")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.537363, 1.7924166, 33.358204)
+mob_to_spawn = ExtResource("6_6fc2c")
 
 [node name="MobSpawner3D3" parent="." instance=ExtResource("5_h8027")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.537363, 1.938035, -35.62763)
+mob_to_spawn = ExtResource("6_6fc2c")
 
 [node name="MobSpawner3D4" parent="." instance=ExtResource("5_h8027")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.365244, 2.1096706, -35.62763)
+mob_to_spawn = ExtResource("6_6fc2c")
