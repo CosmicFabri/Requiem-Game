@@ -38,9 +38,9 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_lotqq")
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 617.0
-offset_top = 247.0
+offset_top = 374.0
 offset_right = 1207.0
-offset_bottom = 607.0
+offset_bottom = 734.0
 text = "WASD - MOVERTE
 MOUSE- APUNTAR
 CLICK- DERECHO DISPARAR
@@ -52,10 +52,10 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 580.0
-offset_top = 25.0
-offset_right = 1244.0
-offset_bottom = 281.0
+offset_left = 573.0
+offset_top = 161.0
+offset_right = 1237.0
+offset_bottom = 417.0
 theme_override_colors/font_color = Color(0.83346766, 0.6131522, 0.89747834, 1)
 theme_override_fonts/font = ExtResource("3_54dmn")
 theme_override_font_sizes/font_size = 100
@@ -65,10 +65,10 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 596.0
-offset_top = 684.0
-offset_right = 1221.0
-offset_bottom = 899.0
+offset_left = 600.0
+offset_top = 759.0
+offset_right = 1225.0
+offset_bottom = 974.0
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_4v5ej")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_k606i")
