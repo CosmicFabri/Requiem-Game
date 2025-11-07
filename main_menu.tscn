@@ -9,7 +9,7 @@ texture = ExtResource("1_7vrkn")
 modulate_color = Color(0.9713355, 0.9713355, 0.9713355, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
-bg_color = Color(0.7847579, 0.48385108, 0.70043653, 1)
+bg_color = Color(0.25868803, 0.6816474, 0.5963893, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -62,7 +62,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 47
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
-text = "opciones"
+text = "Instrucciones
+"
 
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -78,14 +79,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -253.5
-offset_top = -256.0
-offset_right = 292.5
-offset_bottom = -136.0
+offset_left = -254.5
+offset_top = -341.0
+offset_right = 291.5
+offset_bottom = -221.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.6756499, 0.24170026, 0.23259535, 1)
 theme_override_fonts/font = ExtResource("2_fu7sn")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 130
 text = "little critters!"
 horizontal_alignment = 1
 vertical_alignment = 1
