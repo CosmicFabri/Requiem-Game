@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://gywyq10cyw4e"]
+
+[ext_resource type="Texture2D" uid="uid://b6v2icoxggd7m" path="res://fondo.jpg" id="1_5c5qo"]
+[ext_resource type="Script" uid="uid://qtha36hj6q0q" path="res://instrucciones.gd" id="1_87jxx"]
+[ext_resource type="FontFile" uid="uid://c2qp6qqqfnmn6" path="res://Vaseline Extra.ttf" id="3_54dmn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lotqq"]
+texture = ExtResource("1_5c5qo")
+
+[sub_resource type="LabelSettings" id="LabelSettings_0lcjo"]
+font_size = 38
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4v5ej"]
+bg_color = Color(0.1584742, 0.63494444, 0.9297208, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k606i"]
+bg_color = Color(0.27140406, 0.6337316, 0.8807058, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_87jxx")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1914.0
+offset_bottom = 1073.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lotqq")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 374.0
+offset_right = 1207.0
+offset_bottom = 734.0
+text = "WASD - MOVERTE
+MOUSE- APUNTAR
+CLICK- DERECHO DISPARAR
+NO CAIGAS!!!!!
+"
+label_settings = SubResource("LabelSettings_0lcjo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 573.0
+offset_top = 161.0
+offset_right = 1237.0
+offset_bottom = 417.0
+theme_override_colors/font_color = Color(0.83346766, 0.6131522, 0.89747834, 1)
+theme_override_fonts/font = ExtResource("3_54dmn")
+theme_override_font_sizes/font_size = 100
+text = "INSTRUCCIONES"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 759.0
+offset_right = 1225.0
+offset_bottom = 974.0
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_4v5ej")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_k606i")
+text = "VOLVER AL MENU"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
