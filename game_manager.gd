@@ -1,5 +1,7 @@
 extends Node
 
+var score = 0
+
 var levels = [
 	"res://scenes/level_1/level_1.tscn",
 	"res://scenes/level_2/level_2.tscn",

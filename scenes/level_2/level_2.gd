@@ -1,11 +1,17 @@
 extends Node3D
 
-var score = 0
 @onready var score_label = %ScoreLabel
 
+var local_score = 0
+
+func _ready():
+	score_label.text = "Score: " + str(GameManager.score)
+
 func increase_score():
-	score += 1
-	score_label.text = "Score: " + str(score)
+	GameManager.score += 1
+	local_score += 1
+	score_label.text = "Score: " + str(GameManager.score)
+	print(GameManager.score)
 	
 func do_poof(mob_global_position):
 	const SMOKE_PUFF = preload("uid://cjk3frr43yesb")
