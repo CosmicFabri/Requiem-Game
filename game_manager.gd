@@ -18,6 +18,5 @@ func load_level(index):
 	current_level_index = index
 
 func next_level():
-	print("You're on next level function")
 	var next_index = (current_level_index + 1) % levels.size()
 	get_tree().change_scene_to_file(levels[next_index])

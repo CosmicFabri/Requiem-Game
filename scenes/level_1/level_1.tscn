@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dgbitl7ggscot" path="res://scenes/level_1/level_1.gd" id="1_jr17i"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="2_nubdk"]
-[ext_resource type="Material" uid="uid://u4l71aqvc3lq" path="res://assets/platform.tres" id="3_fxajv"]
-[ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://assets/bridge.tres" id="4_opn7a"]
+[ext_resource type="Material" uid="uid://u4l71aqvc3lq" path="res://scenes/level_1/assets/platform.tres" id="3_fxajv"]
+[ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="4_opn7a"]
 [ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="5_e74gk"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7jktm"]
