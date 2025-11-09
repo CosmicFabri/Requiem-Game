@@ -14,7 +14,6 @@ func increase_score():
 	GameManager.score += 1
 	local_score += 1
 	score_label.text = "Score: " + str(GameManager.score)
-	print(GameManager.score)
 	
 func do_poof(mob_global_position):
 	const SMOKE_PUFF = preload("uid://cjk3frr43yesb")
