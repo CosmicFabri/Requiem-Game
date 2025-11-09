@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Videogames Project"
-run/main_scene="uid://2gu4gwdbh6qh"
+run/main_scene="uid://bqxg455jclquw"
 config/features=PackedStringArray("4.5", "Mobile")
 config/icon="res://icon.svg"
 
