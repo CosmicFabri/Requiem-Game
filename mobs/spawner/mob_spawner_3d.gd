@@ -10,7 +10,7 @@ signal mob_spawned(mob)
 var mobs_spawned = 0
 
 func _on_timer_timeout():
-	if mobs_spawned >= 10:
+	if mobs_spawned >= 5:
 		return
 	
 	var new_mob = mob_to_spawn.instantiate()

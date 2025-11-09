@@ -45,11 +45,11 @@ offset_bottom = 121.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_fc0e3")
 
-[node name="MobSpawner3D" parent="." instance=ExtResource("2_nubdk")]
+[node name="MobSpawner3D" parent="." groups=["mob_spawners"] instance=ExtResource("2_nubdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.9503997, -27.9)
 
-[node name="MobSpawner3D" parent="MobSpawner3D" instance=ExtResource("2_nubdk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5, -0.049600303, -0.8999996)
+[node name="MobSpawner3D2" parent="." groups=["mob_spawners"] instance=ExtResource("2_nubdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0.9007994, -28.8)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -126,3 +126,4 @@ environment = SubResource("Environment_80nbo")
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
 [connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]
+[connection signal="mob_spawned" from="MobSpawner3D2" to="." method="_on_mob_spawner_3d_2_mob_spawned"]
