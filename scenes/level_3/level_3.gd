@@ -1,29 +1,34 @@
 extends Node3D
 
-var player_score = 0
+@onready var score_label = %ScoreLabel
 
-@onready var label := %Label
+var local_score = 0
 
+func _ready():
+	for spawner in get_tree().get_nodes_in_group("mob_spawners"):
+		spawner.mob_spawned.connect(_on_mob_spawned)
+		
+	score_label.text = "Score: " + str(GameManager.score)
 
 func increase_score():
-	player_score += 1
-	label.text = "Score: " + str(player_score)
-
+	GameManager.score += 1
+	local_score += 1
+	score_label.text = "Score: " + str(GameManager.score)
+	
+func do_poof(mob_global_position):
+	const SMOKE_PUFF = preload("uid://cjk3frr43yesb")
+	var poof = SMOKE_PUFF.instantiate()
+	add_child(poof)
+	poof.global_position = mob_global_position
 
 func _on_kill_plane_body_entered(body):
 	get_tree().reload_current_scene.call_deferred()
-
-
-func _on_mob_spawner_3d_mob_spawned(mob):
-	mob.died.connect(func():
-		increase_score()
+	
+func _on_mob_spawned(mob):
+	mob.score.connect(increase_score)
+	mob.died.connect(func on_mob_died():
 		do_poof(mob.global_position)
+		if local_score >= 5:
+			GameManager.next_level()
 	)
 	do_poof(mob.global_position)
-
-
-func do_poof(mob_position):
-	const SMOKE_PUFF = preload("res://mob/smoke_puff/smoke_puff.tscn")
-	var poof := SMOKE_PUFF.instantiate()
-	add_child(poof)
-	poof.global_position = mob_position

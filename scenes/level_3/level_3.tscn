@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpqvmc7qt8xut"]
+[gd_scene load_steps=9 format=3 uid="uid://bpqvmc7qt8xut"]
 
 [ext_resource type="Script" uid="uid://bed4ohrualxce" path="res://scenes/level_3/level_3.gd" id="1_xym6k"]
 [ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="2_qaghj"]
 [ext_resource type="Material" uid="uid://spdpie6nlr1q" path="res://scenes/level_3/assets/bridges.tres" id="3_6nj04"]
+[ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="3_uu53k"]
+[ext_resource type="PackedScene" uid="uid://kj054wwb4q3i" path="res://mobs/mob_3/mob.tscn" id="4_2pgml"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_us02b"]
 
 [sub_resource type="Environment" id="Environment_pev5d"]
@@ -28,20 +30,11 @@ volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xiq5r"]
 
-[sub_resource type="Resource" id="Resource_w115q"]
-metadata/__load_path__ = "res://lessons_reference/video_16/mob/mob.tscn"
-
-[sub_resource type="Resource" id="Resource_6nj04"]
-metadata/__load_path__ = "res://lessons_reference/video_16/mob/mob.tscn"
-
-[sub_resource type="Resource" id="Resource_us02b"]
-metadata/__load_path__ = "res://lessons_reference/video_16/mob/mob.tscn"
-
-[node name="Game" type="Node3D"]
+[node name="Level3" type="Node3D"]
 script = ExtResource("1_xym6k")
 
 [node name="Player" parent="." instance=ExtResource("2_qaghj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8945656, 5.0373516, -18.299551)
+transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, -4.6360183, 0.73576784, -17.733292)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pev5d")
@@ -51,7 +44,7 @@ transform = Transform3D(0.7071068, -0.6123726, 0.35355312, -0.007935316, 0.49309
 shadow_enabled = true
 directional_shadow_max_distance = 40.0
 
-[node name="Label" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = 28.0
 offset_top = 15.0
@@ -71,47 +64,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1026287)
 shape = SubResource("WorldBoundaryShape3D_xiq5r")
 debug_color = Color(0.051041238, 0.5952717, 0.72060525, 0.41960785)
 
-[node name="MobSpawner3D" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.284584, 0.5, 11.3959)
-mob_to_spawn = SubResource("Resource_w115q")
-script = null
+[node name="MobSpawner3D2" parent="." groups=["mob_spawners"] instance=ExtResource("3_uu53k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4815462, 1.7924166, 43.478405)
+mob_to_spawn = ExtResource("4_2pgml")
 
-[node name="MobSpawner3D2" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3348203, 0.5, 43.01793)
-mob_to_spawn = SubResource("Resource_6nj04")
-script = null
+[node name="MobSpawner3D3" parent="." groups=["mob_spawners"] instance=ExtResource("3_uu53k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.268465, 1.938035, 12.061021)
+mob_to_spawn = ExtResource("4_2pgml")
 
-[node name="MobSpawner3D3" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.257813, 0.5, 11.774555)
-mob_to_spawn = SubResource("Resource_us02b")
-script = null
+[node name="MobSpawner3D4" parent="." groups=["mob_spawners"] instance=ExtResource("3_uu53k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.182625, 2.1096706, 11.435015)
+mob_to_spawn = ExtResource("4_2pgml")
 
 [node name="Bridge" type="CSGBox3D" parent="."]
 transform = Transform3D(0.99992746, 0.012042479, 0, -0.012042479, 0.99992746, 0, 0, 0, 1, -14.615606, -0.068327904, -8.070258)
@@ -406,11 +369,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1451552, 8.420381, 11.4023
 use_collision = true
 size = Vector3(3.3166347, 1.1971436, 2.9121704)
 material = ExtResource("4_us02b")
-
-[node name="Label2" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Eyden Jose Navarro Chi
-"
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
