@@ -1,0 +1,145 @@
+[gd_scene load_steps=13 format=3 uid="uid://cj4075ykotq2w"]
+
+[ext_resource type="PackedScene" uid="uid://biqfjv4q77cnm" path="res://mobs/boss_1/Slime.glb" id="1_lqpii"]
+[ext_resource type="Script" uid="uid://c8uqql35wa4j5" path="res://mobs/boss_1/slime/slime_model.gd" id="2_hvgab"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yig1g"]
+resource_name = "Squidle_Main"
+cull_mode = 2
+albedo_color = Color(0.54665726, 0.2401823, 0.36964855, 1)
+roughness = 0.6
+
+[sub_resource type="Animation" id="Animation_ano78"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = true
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterArmature_047/Skeleton3D:Head_CharacterArmature.047")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -1.1568188e-15, -1.7743575e-07, -0.7162136, 0.033333335, 1, -1.3882308e-15, -1.8050089e-07, -0.7226789, 0.06666667, 1, -1.5022554e-15, -1.8201118e-07, -0.7258645, 0.1, 1, 7.803937e-17, -1.6107954e-07, -0.6817133, 0.13333334, 1, 3.842253e-15, -1.1122103e-07, -0.5765463, 0.16666667, 1, 9.192647e-15, -4.0352916e-08, -0.4270636, 0.2, 1, 1.29902125e-14, 9.947378e-09, -0.32096478, 0.23333333, 1, 1.4636194e-14, 3.1749067e-08, -0.27497828, 0.26666668, 1, 1.5100588e-14, 3.790015e-08, -0.26200372, 0.3, 1, 1.4682959e-14, 3.236847e-08, -0.27367175, 0.33333334, 1, 1.3012441e-14, 1.0241806e-08, -0.3203437, 0.36666667, 1, 7.550516e-15, -6.210358e-08, -0.47294247, 0.4, 1, 3.1003951e-15, -1.2104724e-07, -0.5972728, 0.43333334, 1, 6.263819e-16, -1.5381653e-07, -0.66639334, 0.46666667, 1, -2.7498632e-27, -1.6211321e-07, -0.6838936, 0.53333336, 1, -2.7498632e-27, -1.6211321e-07, -0.6838936, 0.56666666, 1, -3.4701116e-16, -1.6670951e-07, -0.6935886, 0.6, 1, -1.1568204e-15, -1.7743578e-07, -0.7162136, 0.6333333, 1, -1.7727378e-15, -1.8559386e-07, -0.7334215, 0.6666667, 1, -7.6560756e-16, -1.7225399e-07, -0.7052836, 0.7, 1, 3.842106e-15, -1.11222974e-07, -0.57655036, 0.73333335, 1, 8.821178e-15, -4.527316e-08, -0.43744192, 0.76666665, 1, 1.2708975e-14, 6.2222725e-09, -0.32882217, 0.8, 1, 1.479095e-14, 3.3798862e-08, -0.2706546, 0.8333333, 1, 1.5100588e-14, 3.790015e-08, -0.26200372, 0.8666667, 1, 1.468308e-14, 3.2370124e-08, -0.2736683, 0.9, 1, 1.2000085e-14, -3.1672371e-09, -0.34862757, 0.93333334, 1, 7.550162e-15, -6.210827e-08, -0.47295237, 0.96666664, 1, 2.7631257e-15, -1.2551449e-07, -0.6066956, 1, 1, -2.7498632e-27, -1.6211321e-07, -0.6838936)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = true
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterArmature_047/Skeleton3D:Head_CharacterArmature.047")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.72270614, -5.4562815e-08, -5.218077e-08, 0.69115543, 0.033333335, 1, 0.7257838, -5.4795173e-08, -5.193672e-08, 0.6879229, 0.06666667, 1, 0.73179674, -5.524913e-08, -5.145354e-08, 0.681523, 0.1, 1, 0.72963107, -5.508563e-08, -5.1628543e-08, 0.683841, 0.13333334, 1, 0.7163132, -5.408016e-08, -5.2680832e-08, 0.697779, 0.16666667, 1, 0.69691557, -5.2615672e-08, -5.414356e-08, 0.71715325, 0.2, 1, 0.6828377, -5.155284e-08, -5.5156505e-08, 0.73057014, 0.23333333, 1, 0.67665577, -5.108611e-08, -5.5589055e-08, 0.7362995, 0.26666668, 1, 0.6749031, -5.0953787e-08, -5.5710366e-08, 0.73790634, 0.3, 1, 0.6758125, -5.102244e-08, -5.5647504e-08, 0.73707366, 0.33333334, 1, 0.67943954, -5.129628e-08, -5.539519e-08, 0.73373157, 0.36666667, 1, 0.6911766, -5.21824e-08, -5.456126e-08, 0.72268593, 0.4, 1, 0.7006079, -5.2894435e-08, -5.3871254e-08, 0.7135465, 0.43333334, 1, 0.70579886, -5.3286346e-08, -5.348364e-08, 0.70841235, 0.46666667, 1, 0.7071066, -5.338508e-08, -5.338508e-08, 0.70710695, 0.53333336, 1, 0.7071066, -5.338508e-08, -5.338508e-08, 0.70710695, 0.56666666, 1, 0.71182334, -5.3741182e-08, -5.3026582e-08, 0.70235854, 0.6, 1, 0.7227065, -5.456284e-08, -5.218074e-08, 0.691155, 0.6333333, 1, 0.7338542, -5.540447e-08, -5.128624e-08, 0.67930704, 0.6666667, 1, 0.73258096, -5.5308345e-08, -5.138989e-08, 0.6806799, 0.7, 1, 0.716314, -5.4080225e-08, -5.2680765e-08, 0.6977781, 0.73333335, 1, 0.69828314, -5.271893e-08, -5.404302e-08, 0.7158217, 0.76666665, 1, 0.68388927, -5.1632224e-08, -5.5082182e-08, 0.7295858, 0.8, 1, 0.6760722, -5.1042047e-08, -5.562952e-08, 0.7368355, 0.8333333, 1, 0.6749031, -5.0953787e-08, -5.571037e-08, 0.7379064, 0.8666667, 1, 0.6758122, -5.102242e-08, -5.5647526e-08, 0.7370739, 0.9, 1, 0.68162745, -5.146146e-08, -5.5241763e-08, 0.7316994, 0.93333334, 1, 0.6911778, -5.2182493e-08, -5.4561177e-08, 0.7226848, 0.96666664, 1, 0.70131814, -5.2948067e-08, -5.3818553e-08, 0.7128484, 1, 1, 0.7071066, -5.338508e-08, -5.338508e-08, 0.70710695)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = true
+tracks/2/enabled = true
+tracks/2/path = NodePath("CharacterArmature_047/Skeleton3D:Head3_CharacterArmature.047")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0.0034200265, -5.7720207e-17, 1.802713e-16, 0.99999416, 0.033333335, 1, 0.0052104252, 5.5955975e-15, -8.361143e-17, 0.9999865, 0.06666667, 1, 0.012376238, 4.7600126e-15, -2.6900316e-16, 0.99992347, 0.1, 1, 0.019681117, 3.6626774e-16, -1.2735357e-16, 0.9998063, 0.13333334, 1, 0.021226542, -2.506961e-15, 1.4847196e-16, 0.9997747, 0.16666667, 1, 0.010449947, 3.366257e-15, -7.578098e-17, 0.9999454, 0.2, 1, -0.032392696, -1.5671609e-15, 2.892982e-16, 0.9994753, 0.23333333, 1, -0.07857278, -4.3364983e-15, 9.365025e-16, 0.9969085, 0.26666668, 1, -0.114453614, -8.5426714e-16, 6.622668e-16, 0.9934287, 0.3, 1, -0.12700586, 5.7859304e-15, -1.2080578e-16, 0.99190205, 0.33333334, 1, -0.103609815, 5.3245245e-15, 6.1320484e-16, 0.994618, 0.36666667, 1, -0.040554028, 7.103615e-15, 3.7519192e-16, 0.99917746, 0.4, 1, -0.009902803, 5.149778e-15, 1.3270992e-16, 0.999951, 0.43333334, 1, -1.4210855e-14, 2.13169e-15, 6.5316965e-18, 1, 0.53333336, 1, -1.4210855e-14, 0, -5.4677335e-22, 1, 0.56666666, 1, 0.0010259324, 2.1134452e-15, -9.2950464e-17, 0.9999995, 0.6, 1, 0.0050793155, 4.8861553e-15, -6.0126673e-17, 0.9999871, 0.6333333, 1, 0.012374803, 4.7652807e-15, 1.746106e-16, 0.99992347, 0.6666667, 1, 0.021340022, -3.900385e-15, 5.448032e-16, 0.9997723, 0.7, 1, 0.021226067, 1.7573419e-15, 3.9698727e-17, 0.99977475, 0.73333335, 1, 0.0025863496, -7.6059567e-16, -1.2173093e-16, 0.99999666, 0.76666665, 1, -0.033545405, -1.0087633e-16, 1.9545607e-16, 0.9994372, 0.8, 1, -0.07973947, 4.2838365e-15, 6.7026437e-16, 0.99681574, 0.8333333, 1, -0.1222303, 2.1328713e-15, 5.262351e-16, 0.99250185, 0.8666667, 1, -0.12700851, -3.5147886e-15, -8.8308765e-16, 0.99190164, 0.9, 1, -0.092329346, -3.3872176e-15, -3.605264e-16, 0.9957286, 0.93333334, 1, -0.044324882, -1.3566164e-15, 1.6215469e-16, 0.9990172, 0.96666664, 1, -0.006601964, 1.177855e-16, 5.649753e-17, 0.9999782, 1, 1, -1.4210855e-14, 0, -5.4677335e-22, 1)
+
+[sub_resource type="Animation" id="Animation_p3iuh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterArmature_047/Skeleton3D/Pink_Blob_0:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.54665726, 0.2401823, 0.36964855, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterArmature_047/Skeleton3D/Pink_Blob_0:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p4ft1"]
+_data = {
+&"Idle": SubResource("Animation_ano78"),
+&"RESET": SubResource("Animation_p3iuh")
+}
+
+[sub_resource type="Animation" id="Animation_0a1gj"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterArmature_047/Skeleton3D/Pink_Blob_0:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.54665726, 0.2401823, 0.36964855, 1), Color(0.78431374, 0.21568628, 0.0627451, 1), Color(0.54665726, 0.2401823, 0.36964855, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterArmature_047/Skeleton3D/Pink_Blob_0:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1.3, 1.3, 1.3), Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hcxj8"]
+_data = {
+&"hurt": SubResource("Animation_0a1gj")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dm55j"]
+animation = &"custom/hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_id623"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_rcy41"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ki02p"]
+graph_offset = Vector2(-678.7948, 0)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_id623")
+nodes/Animation/position = Vector2(-260, 60)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_dm55j")
+"nodes/Animation 2/position" = Vector2(-260, 240)
+nodes/OneShot/node = SubResource("AnimationNodeOneShot_rcy41")
+nodes/OneShot/position = Vector2(20, 60)
+node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Animation", &"OneShot", 1, &"Animation 2"]
+
+[node name="slime_model" instance=ExtResource("1_lqpii")]
+script = ExtResource("2_hvgab")
+
+[node name="Skeleton3D" parent="CharacterArmature_047" index="2"]
+bones/0/position = Vector3(-1.3115358e-15, -1.7948504e-07, -0.7205361)
+bones/0/rotation = Quaternion(0.72552484, -5.477562e-08, -5.1957343e-08, 0.68819594)
+bones/2/rotation = Quaternion(0.0069119455, 4.8558163e-15, -1.1616693e-18, 0.9999761)
+
+[node name="Pink_Blob_0" parent="CharacterArmature_047/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yig1g")
+
+[node name="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_p4ft1"),
+&"custom": SubResource("AnimationLibrary_hcxj8")
+}
+autoplay = "Idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+unique_name_in_owner = true
+root_node = NodePath("%AnimationTree/..")
+tree_root = SubResource("AnimationNodeBlendTree_ki02p")
+anim_player = NodePath("../AnimationPlayer")
+parameters/OneShot/active = false
+parameters/OneShot/internal_active = false
+parameters/OneShot/request = 0

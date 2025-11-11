@@ -3,29 +3,30 @@ extends RigidBody3D
 signal died
 signal score
 
-var health = 3
+var health = 5
 var speed = randf_range(2.0, 4.0)
 
-@onready var bat_model = %bat_model
-@onready var timer = %Timer
+@onready var bat_creature_model: Node3D = %bat_creature_model
+@onready var timer: Timer = %Timer
 
-@onready var hurt_sound = %HurtSound
-@onready var ko_sound = %KOSound
+@onready var hurt_sound: AudioStreamPlayer3D = %HurtSound
+@onready var ko_sound: AudioStreamPlayer3D = %KOSound
 
-@onready var player = get_node("/root/Level1/Player")
+
+@onready var player = get_node("/root/Level2/Player")
 
 func _physics_process(_delta):
 	# Setting the direction to the player's location
 	var direction = global_position.direction_to(player.global_position)
 	direction.y = 0.0 # Not move up or down
 	linear_velocity = direction * speed
-	bat_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
+	bat_creature_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
 
 func take_damage():
 	if health == 0:
 		return
 	
-	bat_model.hurt()
+	bat_creature_model.hurt()
 	hurt_sound.play()
 	health -= 1
 	
