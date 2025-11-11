@@ -6,12 +6,16 @@ signal score
 var health = 3
 var speed = randf_range(2.0, 4.0)
 
-@onready var bat_model = %bat_model
-@onready var timer = %Timer
+@onready var devil_model: Node3D = %devil_model
+@onready var timer: Timer = %Timer
 
-@onready var hurt_sound = %HurtSound
-@onready var ko_sound = %KOSound
+@onready var hurt_sound: AudioStreamPlayer3D = %HurtSound
+@onready var ko_sound: AudioStreamPlayer3D = %KOSound
 
+<<<<<<< HEAD:mobs/mob_3/mob.gd
+=======
+
+>>>>>>> aa09dde1279092e809af5406d6a732b33f7f98fa:mobs/mob_3/devil.gd
 @onready var player = get_node("/root/Level3/Player")
 
 func _physics_process(_delta):
@@ -19,13 +23,13 @@ func _physics_process(_delta):
 	var direction = global_position.direction_to(player.global_position)
 	direction.y = 0.0 # Not move up or down
 	linear_velocity = direction * speed
-	bat_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
+	devil_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
 
 func take_damage():
 	if health == 0:
 		return
 	
-	bat_model.hurt()
+	devil_model.hurt()
 	hurt_sound.play()
 	health -= 1
 	

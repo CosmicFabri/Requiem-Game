@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bba7xu3l7drd5"]
+
+[resource]
+resource_name = "Dino_Tongue"
+cull_mode = 2
+albedo_color = Color(0.44705886, 0.09803923, 0.13725492, 1)
+roughness = 0.6
