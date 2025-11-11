@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dgbitl7ggscot" path="res://scenes/level_1/level_1.gd" id="1_jr17i"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="2_nubdk"]
-[ext_resource type="Material" uid="uid://u4l71aqvc3lq" path="res://assets/platform.tres" id="3_fxajv"]
-[ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://assets/bridge.tres" id="4_opn7a"]
+[ext_resource type="Material" uid="uid://u4l71aqvc3lq" path="res://scenes/level_1/assets/platform.tres" id="3_fxajv"]
+[ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="4_opn7a"]
 [ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="5_e74gk"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7jktm"]
@@ -45,11 +45,11 @@ offset_bottom = 121.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_fc0e3")
 
-[node name="MobSpawner3D" parent="." instance=ExtResource("2_nubdk")]
+[node name="MobSpawner3D" parent="." groups=["mob_spawners"] instance=ExtResource("2_nubdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.9503997, -27.9)
 
-[node name="MobSpawner3D" parent="MobSpawner3D" instance=ExtResource("2_nubdk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5, -0.049600303, -0.8999996)
+[node name="MobSpawner3D2" parent="." groups=["mob_spawners"] instance=ExtResource("2_nubdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0.9007994, -28.8)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -125,4 +125,3 @@ shadow_enabled = true
 environment = SubResource("Environment_80nbo")
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
-[connection signal="mob_spawned" from="MobSpawner3D" to="." method="_on_mob_spawner_3d_mob_spawned"]

@@ -5,6 +5,7 @@ var score = 0
 var levels = [
 	"res://scenes/level_1/level_1.tscn",
 	"res://scenes/level_2/level_2.tscn",
+	"res://scenes/level_3/level_3.tscn"
 ]
 
 var current_level_index = 0
@@ -18,6 +19,9 @@ func load_level(index):
 	current_level_index = index
 
 func next_level():
-	print("You're on next level function")
 	var next_index = (current_level_index + 1) % levels.size()
-	get_tree().change_scene_to_file(levels[next_index])
+	current_level_index = next_index
+	print("GameManager: switching to index:", next_index, " scene:", levels[next_index])
+	var err = get_tree().change_scene_to_file(levels[next_index])
+	if err != OK:
+		push_error("change_scene_to_file failed: " + str(err))

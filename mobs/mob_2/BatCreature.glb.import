@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://clyxyrgiuctsv"
-path="res://.godot/imported/bat_model.glb-c9616b758abd1400b1d0b1e84e02c106.scn"
+uid="uid://016343dkhs3q"
+path="res://.godot/imported/BatCreature.glb-c3b4ea8c07c11be64c65c84c72a975da.scn"
 
 [deps]
 
-source_file="res://mobs/mob_2/bat/bat_model.glb"
-dest_files=["res://.godot/imported/bat_model.glb-c9616b758abd1400b1d0b1e84e02c106.scn"]
+source_file="res://mobs/mob_2/BatCreature.glb"
+dest_files=["res://.godot/imported/BatCreature.glb-c3b4ea8c07c11be64c65c84c72a975da.scn"]
 
 [params]
 
@@ -39,7 +39,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"Idle": {
+"Volar": {
 "save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": "",
@@ -2097,5 +2097,5 @@ _subresources={
 }
 }
 }
-gltf/naming_version=1
+gltf/naming_version=2
 gltf/embedded_image_handling=1

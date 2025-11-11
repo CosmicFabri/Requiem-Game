@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://c58irqhi372q0"]
+[gd_scene load_steps=13 format=3 uid="uid://ckxjaep20ib8b"]
 
-[ext_resource type="PackedScene" uid="uid://clyxyrgiuctsv" path="res://mobs/mob_2/bat/bat_model.glb" id="1_50ea5"]
-[ext_resource type="Script" uid="uid://dewe7i5ubm3ro" path="res://mobs/mob_2/bat/bat_model.gd" id="2_u1jg2"]
-[ext_resource type="Material" uid="uid://xdbm5j0x1mj5" path="res://mobs/mob_2/bat/bat_material.tres" id="3_a8k33"]
+[ext_resource type="PackedScene" uid="uid://bj644tclewc63" path="res://mobs/mob_3/bat/bat_model.glb" id="1_idc84"]
+[ext_resource type="Script" uid="uid://bxyxg208ppyjq" path="res://mobs/mob_3/bat/bat_model.gd" id="2_o3u23"]
+[ext_resource type="Material" uid="uid://ca4fawiyehega" path="res://mobs/mob_3/bat/bat_material.tres" id="3_n7qe0"]
 
 [sub_resource type="Animation" id="Animation_0gbdx"]
 resource_name = "Idle"
@@ -183,8 +183,8 @@ nodes/OneShot/node = SubResource("AnimationNodeOneShot_shx3p")
 nodes/OneShot/position = Vector2(60, 120)
 node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Idle", &"OneShot", 1, &"Hurt"]
 
-[node name="bat_model" instance=ExtResource("1_50ea5")]
-script = ExtResource("2_u1jg2")
+[node name="bat_model" instance=ExtResource("1_idc84")]
+script = ExtResource("2_o3u23")
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(0, -0.019440483, 0)
@@ -202,7 +202,7 @@ bones/10/rotation = Quaternion(0.26196837, -0.083455116, -0.26575127, 0.9240044)
 bones/11/rotation = Quaternion(2.4735243e-08, 0.65221936, 0.75803035, 3.3356738e-08)
 
 [node name="bat" parent="Armature/Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("3_a8k33")
+surface_material_override/0 = ExtResource("3_n7qe0")
 
 [node name="AnimationPlayer" parent="." index="1"]
 libraries = {

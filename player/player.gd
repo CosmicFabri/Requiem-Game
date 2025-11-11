@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 # Hide the mouse at startup
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 # Control the rotation of the character/camera
 func _unhandled_input(event):

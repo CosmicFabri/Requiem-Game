@@ -1,0 +1,73 @@
+[gd_scene load_steps=11 format=3 uid="uid://cdtfq88updsdr"]
+
+[ext_resource type="PackedScene" uid="uid://cj4075ykotq2w" path="res://mobs/boss_1/slime/slime_model.tscn" id="1_grcbd"]
+[ext_resource type="Script" uid="uid://c7um0qwe57sxx" path="res://mobs/boss_1/slime.gd" id="1_hf5d2"]
+[ext_resource type="AudioStream" uid="uid://bx3idpeigglls" path="res://mobs/mob_1/mob_take_damage.wav" id="3_pyt7i"]
+[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://mobs/mob_1/mob_ko.wav" id="4_xno7l"]
+[ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mobs/smoke_puff/smoke_puff.tscn" id="5_rl3sd"]
+[ext_resource type="Shader" uid="uid://spi71y1qu06o" path="res://mobs/smoke_puff/material/outer_smoke.gdshader" id="6_lvtx0"]
+[ext_resource type="Shader" uid="uid://0h8qjtcpk0mk" path="res://mobs/smoke_puff/material/inner_smoke.gdshader" id="7_fp003"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_grcbd"]
+radius = 1.1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_08wxd"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_lvtx0")
+shader_parameter/albedo = Color(0.937255, 0.698039, 1, 1)
+shader_parameter/progress = 0.0
+shader_parameter/smoothness = 0.2
+shader_parameter/ease = 1.0
+shader_parameter/base_scale = 0.0
+shader_parameter/deformation_scale = 0.0
+shader_parameter/texture_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_044mv"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("7_fp003")
+shader_parameter/albedo = Color(1, 0.537255, 0.792157, 1)
+shader_parameter/progress = 0.0
+shader_parameter/smoothness = 0.01
+shader_parameter/ease = 2.0
+shader_parameter/base_scale = 0.0
+shader_parameter/deformation_scale = 0.1999999999970896
+shader_parameter/texture_offset = 0.0
+shader_parameter/fresnel_offset = 1.0
+shader_parameter/global_alpha = 0.5
+
+[node name="Slime" type="RigidBody3D"]
+script = ExtResource("1_hf5d2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7382829, 0)
+shape = SubResource("SphereShape3D_grcbd")
+
+[node name="slime_model" parent="." instance=ExtResource("1_grcbd")]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_pyt7i")
+
+[node name="KOSound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_xno7l")
+
+[node name="smoke_puff" parent="." instance=ExtResource("5_rl3sd")]
+
+[node name="OuterSmoke" parent="smoke_puff" index="0"]
+material_override = SubResource("ShaderMaterial_08wxd")
+
+[node name="InnerSmoke" parent="smoke_puff" index="1"]
+material_override = SubResource("ShaderMaterial_044mv")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="smoke_puff"]
