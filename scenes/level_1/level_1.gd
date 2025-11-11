@@ -26,7 +26,12 @@ func do_poof(mob_global_position):
 func _on_kill_plane_body_entered(body):
 	if body.is_in_group("player"):
 		body.respawn()
-
+		GameManager.lives -= 1
+		
+	if GameManager.lives <= 0:
+		GameManager.go_to_main_menu()
+		GameManager.reset_game()
+		
 func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)
 	mob.died.connect(func on_mob_died():
