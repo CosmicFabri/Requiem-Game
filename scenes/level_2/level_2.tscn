@@ -38,7 +38,7 @@ volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
 [node name="Level2" type="Node3D"]
 script = ExtResource("1_t1d0w")
 
-[node name="Player" parent="." instance=ExtResource("2_6fc2c")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_6fc2c")]
 
 [node name="KillPlane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7226548, -6.255426, -0.5745864)

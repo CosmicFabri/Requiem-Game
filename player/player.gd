@@ -1,8 +1,16 @@
 extends CharacterBody3D
 
-# Hide the mouse at startup
+var spawn_position: Vector3
+
 func _ready():
+	# Remember initial position as spawn
+	spawn_position = global_position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+func respawn():
+	# Optionally reset health or other stats here
+	global_position = spawn_position
+	velocity = Vector3.ZERO
 
 # Control the rotation of the character/camera
 func _unhandled_input(event):

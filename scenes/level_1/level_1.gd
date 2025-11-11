@@ -24,7 +24,8 @@ func do_poof(mob_global_position):
 	poof.global_position = mob_global_position
 	
 func _on_kill_plane_body_entered(body):
-	get_tree().reload_current_scene.call_deferred()
+	if body.is_in_group("player"):
+		body.respawn()
 
 func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)
