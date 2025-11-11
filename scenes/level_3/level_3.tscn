@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://kj054wwb4q3i" path="res://mobs/mob_3/mob.tscn" id="4_2pgml"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_us02b"]
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xiq5r"]
+
 [sub_resource type="Environment" id="Environment_pev5d"]
 background_mode = 1
 background_color = Color(0, 0.8270062, 0.8859088, 1)
@@ -28,13 +30,20 @@ volumetric_fog_density = 0.1525
 volumetric_fog_albedo = Color(0.203922, 0.203922, 1, 1)
 volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xiq5r"]
-
 [node name="Level3" type="Node3D"]
 script = ExtResource("1_xym6k")
 
 [node name="Player" parent="." instance=ExtResource("2_qaghj")]
 transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, -4.6360183, 0.73576784, -17.733292)
+
+[node name="KillPlane" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -8.880931, -6.5)
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1026287)
+shape = SubResource("WorldBoundaryShape3D_xiq5r")
+debug_color = Color(0.051041238, 0.5952717, 0.72060525, 0.41960785)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_pev5d")
@@ -52,17 +61,6 @@ offset_right = 256.0
 offset_bottom = 101.0
 theme_override_font_sizes/font_size = 60
 text = "Score: 0"
-
-[node name="KillPlane" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -9.043098, -6.5)
-collision_layer = 0
-collision_mask = 2
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1026287)
-shape = SubResource("WorldBoundaryShape3D_xiq5r")
-debug_color = Color(0.051041238, 0.5952717, 0.72060525, 0.41960785)
 
 [node name="MobSpawner3D2" parent="." groups=["mob_spawners"] instance=ExtResource("3_uu53k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4815462, 1.7924166, 43.478405)
