@@ -20,8 +20,4 @@ func load_level(index):
 
 func next_level():
 	var next_index = (current_level_index + 1) % levels.size()
-	current_level_index = next_index
-	print("GameManager: switching to index:", next_index, " scene:", levels[next_index])
-	var err = get_tree().change_scene_to_file(levels[next_index])
-	if err != OK:
-		push_error("change_scene_to_file failed: " + str(err))
+	get_tree().change_scene_to_file(levels[next_index])

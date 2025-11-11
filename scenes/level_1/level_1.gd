@@ -5,6 +5,8 @@ extends Node3D
 var local_score = 0
 
 func _ready():
+	GameManager.current_level_index = 0
+	
 	for spawner in get_tree().get_nodes_in_group("mob_spawners"):
 		spawner.mob_spawned.connect(_on_mob_spawned)
 		
