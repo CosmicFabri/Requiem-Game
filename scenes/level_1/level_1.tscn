@@ -27,7 +27,7 @@ fog_height_density = 0.2105
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_jr17i")
 
-[node name="Player" parent="." instance=ExtResource("5_e74gk")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("5_e74gk")]
 
 [node name="KillPlane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)

@@ -5,6 +5,8 @@ extends Node3D
 var local_score = 0
 
 func _ready():
+	GameManager.current_level_index = 0
+	
 	for spawner in get_tree().get_nodes_in_group("mob_spawners"):
 		spawner.mob_spawned.connect(_on_mob_spawned)
 		
@@ -22,8 +24,14 @@ func do_poof(mob_global_position):
 	poof.global_position = mob_global_position
 	
 func _on_kill_plane_body_entered(body):
-	get_tree().reload_current_scene.call_deferred()
-
+	if body.is_in_group("player"):
+		body.respawn()
+		GameManager.lives -= 1
+		
+	if GameManager.lives <= 0:
+		GameManager.go_to_main_menu()
+		GameManager.reset_game()
+		
 func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)
 	mob.died.connect(func on_mob_died():

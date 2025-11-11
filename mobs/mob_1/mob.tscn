@@ -70,9 +70,6 @@ material_override = SubResource("ShaderMaterial_m7ysg")
 [node name="InnerSmoke" parent="smoke_puff" index="1"]
 material_override = SubResource("ShaderMaterial_wn2st")
 
-[node name="Sound" parent="smoke_puff" index="3"]
-stream = null
-
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="smoke_puff"]

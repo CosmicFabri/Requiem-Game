@@ -1,6 +1,7 @@
 extends Node
 
 var score = 0
+var lives = 3
 
 var levels = [
 	"res://scenes/level_1/level_1.tscn",
@@ -20,8 +21,10 @@ func load_level(index):
 
 func next_level():
 	var next_index = (current_level_index + 1) % levels.size()
-	current_level_index = next_index
-	print("GameManager: switching to index:", next_index, " scene:", levels[next_index])
-	var err = get_tree().change_scene_to_file(levels[next_index])
-	if err != OK:
-		push_error("change_scene_to_file failed: " + str(err))
+	get_tree().change_scene_to_file(levels[next_index])
+	
+func go_to_main_menu():
+	get_tree().change_scene_to_file("res://main_menu.tscn")
+	
+func reset_game():
+	score = 0
