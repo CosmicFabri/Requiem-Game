@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="2_qaghj"]
 [ext_resource type="Material" uid="uid://spdpie6nlr1q" path="res://scenes/level_3/assets/bridges.tres" id="3_6nj04"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="3_uu53k"]
-[ext_resource type="PackedScene" uid="uid://kj054wwb4q3i" path="res://mobs/mob_3/mob.tscn" id="4_2pgml"]
+[ext_resource type="PackedScene" uid="uid://cv1suuehjgrnc" path="res://mobs/mob_3/devil.tscn" id="4_2pgml"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_us02b"]
 
 [sub_resource type="Environment" id="Environment_pev5d"]
