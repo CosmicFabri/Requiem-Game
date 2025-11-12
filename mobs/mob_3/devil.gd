@@ -12,10 +12,6 @@ var speed = randf_range(2.0, 4.0)
 @onready var hurt_sound: AudioStreamPlayer3D = %HurtSound
 @onready var ko_sound: AudioStreamPlayer3D = %KOSound
 
-<<<<<<< HEAD:mobs/mob_3/mob.gd
-=======
-
->>>>>>> aa09dde1279092e809af5406d6a732b33f7f98fa:mobs/mob_3/devil.gd
 @onready var player = get_node("/root/Level3/Player")
 
 func _physics_process(_delta):

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://gywyq10cyw4e"]
 
-[ext_resource type="Texture2D" uid="uid://b6v2icoxggd7m" path="res://fondo.jpg" id="1_5c5qo"]
-[ext_resource type="Script" uid="uid://qtha36hj6q0q" path="res://instrucciones.gd" id="1_87jxx"]
-[ext_resource type="FontFile" uid="uid://c2qp6qqqfnmn6" path="res://Vaseline Extra.ttf" id="3_54dmn"]
+[ext_resource type="Texture2D" uid="uid://b6v2icoxggd7m" path="res://scenes/main_menu/fondo.jpg" id="1_5c5qo"]
+[ext_resource type="Script" uid="uid://qtha36hj6q0q" path="res://scenes/main_menu/instrucciones.gd" id="1_87jxx"]
+[ext_resource type="FontFile" uid="uid://c2qp6qqqfnmn6" path="res://scenes/main_menu/Vaseline Extra.ttf" id="3_54dmn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lotqq"]
 texture = ExtResource("1_5c5qo")
