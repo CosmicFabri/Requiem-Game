@@ -121,9 +121,9 @@ node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Animation", &"One
 script = ExtResource("2_hvgab")
 
 [node name="Skeleton3D" parent="CharacterArmature_047" index="2"]
-bones/0/position = Vector3(-1.3115358e-15, -1.7948504e-07, -0.7205361)
-bones/0/rotation = Quaternion(0.72552484, -5.477562e-08, -5.1957343e-08, 0.68819594)
-bones/2/rotation = Quaternion(0.0069119455, 4.8558163e-15, -1.1616693e-18, 0.9999761)
+bones/0/position = Vector3(-1.2252057e-15, -1.7834157e-07, -0.7181242)
+bones/0/rotation = Quaternion(0.7236172, -5.463159e-08, -5.210875e-08, 0.6902015)
+bones/2/rotation = Quaternion(0.0039491267, 1.6129486e-15, 1.02288724e-16, 0.99999225)
 
 [node name="Pink_Blob_0" parent="CharacterArmature_047/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_yig1g")
