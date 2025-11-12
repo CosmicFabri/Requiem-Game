@@ -31,15 +31,18 @@ func next_level():
 func go_to_main_menu():
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
 	
-#func reset_game():
-	#score = 0
+func go_to_game_over():
+	call_deferred("_change_to_game_over")
+
+func _change_to_game_over():
+	get_tree().change_scene_to_file("res://scenes/game_over/game_over.tscn")
 
 func load_high_score():
 	if FileAccess.file_exists(SAVE_PATH):
 		var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
 		var data = JSON.parse_string(file.get_as_text())
 		if typeof(data) == TYPE_DICTIONARY and data.has("high_score"):
-			high_score = data["high_score"]
+			high_score = int(data["high_score"])
 		file.close()
 	else:
 		high_score = 0

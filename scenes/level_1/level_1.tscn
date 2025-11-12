@@ -30,7 +30,7 @@ script = ExtResource("1_jr17i")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("5_e74gk")]
 
 [node name="KillPlane" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.3931746, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
