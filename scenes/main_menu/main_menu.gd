@@ -1,7 +1,8 @@
 extends Control
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	GameManager.score = 0
 	
 func _on_start_pressed() -> void:
 	print("start pressed")

@@ -29,8 +29,8 @@ func _on_kill_plane_body_entered(body):
 		GameManager.lives -= 1
 		
 	if GameManager.lives <= 0:
+		GameManager.update_high_score()
 		GameManager.go_to_main_menu()
-		GameManager.reset_game()
 	
 func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)

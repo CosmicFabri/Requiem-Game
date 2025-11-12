@@ -5,6 +5,7 @@ extends Node3D
 var local_score = 0
 
 func _ready():
+	print("High score: ", GameManager.high_score)
 	GameManager.current_level_index = 0
 	
 	for spawner in get_tree().get_nodes_in_group("mob_spawners"):
@@ -29,8 +30,8 @@ func _on_kill_plane_body_entered(body):
 		GameManager.lives -= 1
 		
 	if GameManager.lives <= 0:
+		GameManager.update_high_score()
 		GameManager.go_to_main_menu()
-		GameManager.reset_game()
 		
 func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)
