@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhi8uivoekdtf"
+path="res://.godot/imported/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3-1035610dc154c26afd08ba3c12868edd.mp3str"
+
+[deps]
+
+source_file="res://scenes/level_1/assets/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3"
+dest_files=["res://.godot/imported/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3-1035610dc154c26afd08ba3c12868edd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
