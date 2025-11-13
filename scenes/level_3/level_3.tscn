@@ -371,6 +371,7 @@ material = ExtResource("4_us02b")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2pgml")
+volume_db = 0.954
 autoplay = true
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
