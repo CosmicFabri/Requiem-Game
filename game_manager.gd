@@ -6,19 +6,22 @@ var high_score = 0
 const SAVE_PATH = "user://save_data.json"
 
 var levels = [
-	"res://scenes/level_1/level_1.tscn",
+	"res://scenes/level_3/level_3.tscn",
 	"res://scenes/level_2/level_2.tscn",
-	"res://scenes/level_3/level_3.tscn"
+	"res://scenes/level_1/level_1.tscn",
 ]
 
 var current_level_index = 0
 
 func _ready():
 	load_high_score()
+	print("Lives when GameManager starts: ", lives)
 
 func load_level(index):
 	if index < 0 or index >= levels.size():
 		return
+
+	# Load and add the level
 	var scene = load(levels[index])
 	var level_instance = scene.instantiate()
 	get_tree().root.add_child(level_instance)
