@@ -6,8 +6,10 @@ extends Node3D
 var local_score = 0
 
 func _ready():
+	GameManager.current_level_index = 1
 	Player.global_position = spawn_point.global_position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	score_label.text = "Score: " + str(GameManager.score)
 	
 	for spawner in get_tree().get_nodes_in_group("mob_spawners"):
 		spawner.mob_spawned.connect(_on_mob_spawned)
@@ -24,12 +26,13 @@ func do_poof(mob_global_position):
 	poof.global_position = mob_global_position
 	
 func _on_kill_plane_body_entered(body):
-	Player.global_position = spawn_point.global_position
-	Player.remove_heart()
-		
-	if GameManager.lives <= 0:
-		GameManager.update_high_score()
-		GameManager.go_to_game_over()
+	if body == Player:
+		Player.global_position = spawn_point.global_position
+		Player.remove_heart()
+			
+		if GameManager.lives <= 0:
+			GameManager.update_high_score()
+			GameManager.go_to_game_over()
 		
 func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)

@@ -19,6 +19,29 @@ func _ready():
 		
 	get_tree().get_root().add_child(self)
 	self.owner = null # Detach from previous scene
+	
+var is_active := false
+
+func activate():
+	is_active = true
+	visible = true
+	set_physics_process(true)
+	set_process(true)
+
+	# Show reticle if inside player
+	if has_node("Reticle"):
+		$Reticle.visible = true
+
+func deactivate():
+	is_active = false
+	visible = false
+	set_physics_process(false)
+	set_process(false)
+
+	# Hide reticle
+	if has_node("Reticle"):
+		$Reticle.visible = false
+
 
 func _update_hearts_display():
 	# Remove old hearts
