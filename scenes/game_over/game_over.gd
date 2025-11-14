@@ -4,6 +4,7 @@ extends Control
 @onready var current_score_label = %CurrentScoreLabel
 
 func _ready():
+	Player.deactivate()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	high_score_label.text = "High score: " + str(GameManager.high_score)
 	current_score_label.text = "Current score: " + str(GameManager.score)
