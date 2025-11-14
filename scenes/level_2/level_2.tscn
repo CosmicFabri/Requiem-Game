@@ -1,7 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cogsqx2sl52u8"]
 
 [ext_resource type="Script" uid="uid://7rtxu0b8davg" path="res://scenes/level_2/level_2.gd" id="1_t1d0w"]
-[ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="2_6fc2c"]
 [ext_resource type="Material" uid="uid://cd0nv4qseqryn" path="res://scenes/level_2/assets/platform.tres" id="5_6fc2c"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="5_h8027"]
 [ext_resource type="PackedScene" uid="uid://dx7o3eybpjcs6" path="res://mobs/mob_2/bat_creature.tscn" id="6_6fc2c"]
@@ -39,10 +38,8 @@ volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
 [node name="Level2" type="Node3D"]
 script = ExtResource("1_t1d0w")
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("2_6fc2c")]
-
 [node name="KillPlane" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7226548, -6.255426, -0.5745864)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7226548, -3.7368932, -0.5745864)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -56,6 +53,10 @@ offset_right = 256.0
 offset_bottom = 121.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_wp567")
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8124475, 0)
 
 [node name="MobSpawner3D" parent="." groups=["mob_spawners"] instance=ExtResource("5_h8027")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.41966, 1.7924166, 33.358204)
