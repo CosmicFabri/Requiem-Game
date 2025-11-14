@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0mq54a6en51s"]
+
+[ext_resource type="Material" uid="uid://ckpp4mol5jtmh" path="res://scenes/level_boss_2/assets/platform.tres" id="1_mxoq0"]
+[ext_resource type="Material" uid="uid://xwcw83cfft3o" path="res://scenes/level_boss_2/assets/bridge.tres" id="2_uqt5e"]
+
+[sub_resource type="Environment" id="Environment_mxoq0"]
+background_mode = 1
+background_color = Color(0.675944, 0.68251735, 0.66180027, 1)
+ambient_light_sky_contribution = 0.31
+tonemap_mode = 2
+tonemap_exposure = 1.05
+tonemap_white = 0.95
+glow_normalized = true
+glow_intensity = 0.2
+fog_enabled = true
+fog_light_color = Color(0.6769521, 0.70667744, 0.7529175, 1)
+volumetric_fog_density = 0.1525
+volumetric_fog_albedo = Color(0.203922, 0.203922, 1, 1)
+volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[node name="LevelBoss2" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mxoq0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.7071068, -0.6123726, 0.35355312, -0.007935316, 0.493096, 0.86993873, -0.7070623, -0.61794513, 0.3438121, -26.528751, 25.338654, 56.67103)
+shadow_enabled = true
+directional_shadow_max_distance = 40.0
+
+[node name="Platform" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+use_collision = true
+radius = 12.0
+height = 11.0
+sides = 6
+material = ExtResource("1_mxoq0")
+
+[node name="CSGBox3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -0.16093254, 0)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.83906746, -14)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.83906746, -14)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, -0.16093254, 0)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D10" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.83906746, 14)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D11" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0.83906746, 14)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8390675, -18)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D12" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.4379668, -8.527788)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D13" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1.4546041, 9.231314)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D14" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8390675, 18)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D15" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.22854, 1.5113847, 9.239514)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D16" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1.8390675, -8.55152)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
