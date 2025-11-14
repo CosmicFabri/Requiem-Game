@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqxg455jclquw"]
+[gd_scene load_steps=8 format=3 uid="uid://bqxg455jclquw"]
 
 [ext_resource type="Texture2D" uid="uid://b6v2icoxggd7m" path="res://scenes/main_menu/fondo.jpg" id="1_7vrkn"]
 [ext_resource type="Script" uid="uid://dtxhh376ul6fu" path="res://scenes/main_menu/main_menu.gd" id="1_fu7sn"]
 [ext_resource type="FontFile" uid="uid://khk8qnhbejvw" path="res://scenes/main_menu/Pixelmax-Outline.otf" id="3_uqeha"]
 [ext_resource type="FontFile" uid="uid://2dhwlwq27unh" path="res://scenes/main_menu/Pixelout Personal Use Only.ttf" id="4_wem23"]
+[ext_resource type="AudioStream" uid="uid://7f8mex8sxcat" path="res://scenes/main_menu/Marathon Infinity Theme - Forgotten Soundtracks.mp3" id="5_wem23"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
 texture = ExtResource("1_7vrkn")
@@ -99,6 +100,10 @@ theme_override_font_sizes/font_size = 110
 text = "SOULLESS Requiem"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wem23")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
