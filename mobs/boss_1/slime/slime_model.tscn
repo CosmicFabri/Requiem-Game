@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c8uqql35wa4j5" path="res://mobs/boss_1/slime/slime_model.gd" id="2_hvgab"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yig1g"]
+resource_local_to_scene = true
 resource_name = "Squidle_Main"
 cull_mode = 2
 albedo_color = Color(0.54665726, 0.2401823, 0.36964855, 1)
@@ -121,9 +122,9 @@ node_connections = [&"output", 0, &"OneShot", &"OneShot", 0, &"Animation", &"One
 script = ExtResource("2_hvgab")
 
 [node name="Skeleton3D" parent="CharacterArmature_047" index="2"]
-bones/0/position = Vector3(-1.2252057e-15, -1.7834157e-07, -0.7181242)
-bones/0/rotation = Quaternion(0.7236172, -5.463159e-08, -5.210875e-08, 0.6902015)
-bones/2/rotation = Quaternion(0.0039491267, 1.6129486e-15, 1.02288724e-16, 0.99999225)
+bones/0/position = Vector3(8.540465e-16, -1.5080101e-07, -0.6600327)
+bones/0/rotation = Quaternion(0.7269091, -5.4880136e-08, -5.184695e-08, 0.6867338)
+bones/2/rotation = Quaternion(0.021299966, -1.9116416e-15, 3.6725432e-16, 0.99977314)
 
 [node name="Pink_Blob_0" parent="CharacterArmature_047/Skeleton3D" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_yig1g")
