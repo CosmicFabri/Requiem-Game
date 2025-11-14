@@ -4,3 +4,4 @@ extends Node3D
 
 func hurt():
 	animation_tree.set("parameters/OneShot/request", 1)
+	

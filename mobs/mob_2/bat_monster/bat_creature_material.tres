@@ -1,6 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://dm0pcdd8w44qr"]
 
 [resource]
+resource_local_to_scene = true
 resource_name = "Orc_Main.002"
 cull_mode = 2
 albedo_color = Color(0.4513809, 0.5266557, 0.21316278, 1)
