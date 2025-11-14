@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cv1suuehjgrnc"]
+[gd_scene load_steps=12 format=3 uid="uid://cv1suuehjgrnc"]
 
 [ext_resource type="Script" uid="uid://cx2cah1pbxret" path="res://mobs/mob_3/devil.gd" id="1_0kagl"]
 [ext_resource type="PackedScene" uid="uid://cga14mpxyeb1o" path="res://mobs/mob_3/devil/devil_model.tscn" id="1_ngsje"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mobs/smoke_puff/smoke_puff.tscn" id="4_em7uo"]
 [ext_resource type="Shader" uid="uid://spi71y1qu06o" path="res://mobs/smoke_puff/material/outer_smoke.gdshader" id="5_1tse1"]
 [ext_resource type="Shader" uid="uid://0h8qjtcpk0mk" path="res://mobs/smoke_puff/material/inner_smoke.gdshader" id="6_8lhqw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0kagl"]
+radius = 0.8020395
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kyos2"]
 radius = 0.54
@@ -40,6 +43,11 @@ shader_parameter/global_alpha = 0.0
 [node name="Devil" type="RigidBody3D"]
 script = ExtResource("1_0kagl")
 
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_0kagl")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.04272589, 0.1452738)
 shape = SubResource("SphereShape3D_kyos2")
@@ -68,6 +76,7 @@ material_override = SubResource("ShaderMaterial_ahljf")
 [node name="InnerSmoke" parent="smoke_puff" index="1"]
 material_override = SubResource("ShaderMaterial_5b6fi")
 
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="smoke_puff"]

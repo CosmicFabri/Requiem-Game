@@ -40,3 +40,7 @@ func take_damage():
 func _on_timer_timeout():
 	queue_free()
 	died.emit()
+
+func _on_area_3d_body_entered(body):
+	if body is Player:
+		Player.knockback_from(self)
