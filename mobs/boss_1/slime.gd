@@ -12,7 +12,7 @@ var speed = randf_range(2.0, 4.0)
 @onready var hurt_sound: AudioStreamPlayer3D = %HurtSound
 @onready var ko_sound: AudioStreamPlayer3D = %KOSound
 
-@onready var player = get_node("/root/Level2/Player")
+@onready var player = get_node("/root/LevelBoss1/Player")
 
 func _physics_process(_delta):
 	# Setting the direction to the player's location

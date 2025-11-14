@@ -41,7 +41,7 @@ shader_parameter/global_alpha = 0.5
 script = ExtResource("1_hf5d2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7382829, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14447564, 0)
 shape = SubResource("SphereShape3D_grcbd")
 
 [node name="slime_model" parent="." instance=ExtResource("1_grcbd")]

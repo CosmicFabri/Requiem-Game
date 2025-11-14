@@ -8,7 +8,7 @@ const SAVE_PATH = "user://save_data.json"
 var levels = [
 	"res://scenes/level_1/level_1.tscn",
 	"res://scenes/level_2/level_2.tscn",
-	"res://scenes/level_3/level_3.tscn"
+	"res://scenes/level_3/level_3.tscn",
 ]
 
 var current_level_index = 0
@@ -19,14 +19,19 @@ func _ready():
 func load_level(index):
 	if index < 0 or index >= levels.size():
 		return
+
+	# Load and add the level
 	var scene = load(levels[index])
 	var level_instance = scene.instantiate()
 	get_tree().root.add_child(level_instance)
 	current_level_index = index
 	
 func next_level():
+	print("Current level index: ", current_level_index)
 	var next_index = (current_level_index + 1) % levels.size()
+	print("Going to level with index: ", next_index)
 	get_tree().change_scene_to_file(levels[next_index])
+	current_level_index = next_index
 	
 func go_to_main_menu():
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

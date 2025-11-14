@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b6v2icoxggd7m" path="res://scenes/main_menu/fondo.jpg" id="1_5c5qo"]
 [ext_resource type="Script" uid="uid://qtha36hj6q0q" path="res://scenes/main_menu/instrucciones.gd" id="1_87jxx"]
-[ext_resource type="FontFile" uid="uid://c2qp6qqqfnmn6" path="res://scenes/main_menu/Vaseline Extra.ttf" id="3_54dmn"]
+[ext_resource type="FontFile" uid="uid://2dhwlwq27unh" path="res://scenes/main_menu/Pixelout Personal Use Only.ttf" id="3_lqtqi"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lotqq"]
 texture = ExtResource("1_5c5qo")
@@ -52,12 +52,12 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 573.0
-offset_top = 161.0
-offset_right = 1237.0
-offset_bottom = 417.0
+offset_left = 541.0
+offset_top = 207.0
+offset_right = 1323.0
+offset_bottom = 463.0
 theme_override_colors/font_color = Color(0.83346766, 0.6131522, 0.89747834, 1)
-theme_override_fonts/font = ExtResource("3_54dmn")
+theme_override_fonts/font = ExtResource("3_lqtqi")
 theme_override_font_sizes/font_size = 100
 text = "INSTRUCCIONES"
 horizontal_alignment = 1
