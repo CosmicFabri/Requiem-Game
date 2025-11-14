@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgc05dm7o0vh3"
+path="res://.godot/imported/ULTRA SUNN - Keep Your Eyes Peeled - ULTRA SUNN.mp3-2696d631b23d71c504342f146b54fa81.mp3str"
+
+[deps]
+
+source_file="res://scenes/level_2/assets/ULTRA SUNN - Keep Your Eyes Peeled - ULTRA SUNN.mp3"
+dest_files=["res://.godot/imported/ULTRA SUNN - Keep Your Eyes Peeled - ULTRA SUNN.mp3-2696d631b23d71c504342f146b54fa81.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
