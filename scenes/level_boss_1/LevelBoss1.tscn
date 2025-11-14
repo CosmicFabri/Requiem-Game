@@ -1,0 +1,106 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlqnlpb04ni65"]
+
+[ext_resource type="Material" uid="uid://dov7pxl7rul6j" path="res://scenes/level_boss_1/assets/platform.tres" id="1_avk81"]
+[ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="3_qbbv2"]
+[ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_qp5ks"]
+[ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="5_mpyo3"]
+
+[sub_resource type="Environment" id="Environment_v8vk4"]
+background_mode = 1
+background_color = Color(0, 0.8270062, 0.8859088, 1)
+ambient_light_source = 2
+ambient_light_color = Color(4.042983e-06, 0.8072216, 0.9303208, 1)
+ambient_light_sky_contribution = 0.31
+tonemap_mode = 2
+tonemap_exposure = 1.05
+tonemap_white = 0.95
+ssao_intensity = 1.0
+glow_normalized = true
+glow_intensity = 0.2
+fog_enabled = true
+fog_light_color = Color(0.043137256, 0, 0, 1)
+fog_light_energy = 0.31
+fog_density = 0.26
+fog_height_density = 0.1319
+volumetric_fog_density = 0.1525
+volumetric_fog_albedo = Color(0.203922, 0.203922, 1, 1)
+volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[node name="LevelBoss1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_v8vk4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.7071068, -0.6123726, 0.35355312, -0.007935316, 0.493096, 0.86993873, -0.7070623, -0.61794513, 0.3438121, -26.528751, 25.338654, 56.67103)
+shadow_enabled = true
+directional_shadow_max_distance = 40.0
+
+[node name="Platform" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+use_collision = true
+size = Vector3(20, 11, 20)
+material = ExtResource("1_avk81")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.516478, 0.006906271, -3)
+use_collision = true
+size = Vector3(4, 1, 5)
+material = ExtResource("3_qbbv2")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.516478, 0.006906271, 1)
+use_collision = true
+size = Vector3(4, 1, 5)
+material = ExtResource("3_qbbv2")
+
+[node name="Platform2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.177559, -5, -4.831771)
+use_collision = true
+size = Vector3(12.847885, 11, 10.624939)
+material = ExtResource("1_avk81")
+
+[node name="Platform7" type="CSGBox3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9476528, 7.649345, 2.5834725)
+use_collision = true
+size = Vector3(1, 5, 1)
+material = ExtResource("4_qp5ks")
+
+[node name="Platform8" type="CSGBox3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6373787, 7.649345, 2.5834725)
+use_collision = true
+size = Vector3(1, 5, 1)
+material = ExtResource("4_qp5ks")
+
+[node name="Platform9" type="CSGBox3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6373787, 7.649345, -2.34416)
+use_collision = true
+size = Vector3(1, 5, 1)
+material = ExtResource("4_qp5ks")
+
+[node name="Platform10" type="CSGBox3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5944881, 7.649345, -2.34416)
+use_collision = true
+size = Vector3(1, 5, 1)
+material = ExtResource("4_qp5ks")
+
+[node name="Platform11" type="CSGBox3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5793915, 10.737307, 0.11760163)
+use_collision = true
+size = Vector3(7.5905685, 1.1971436, 5.932617)
+material = ExtResource("4_qp5ks")
+
+[node name="Platform12" type="CSGBox3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62779045, 11.942547, 0.18378854)
+use_collision = true
+size = Vector3(4.890074, 1.1971436, 4.9995117)
+material = ExtResource("4_qp5ks")
+
+[node name="Platform13" type="CSGBox3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.50494385, 13.130604, 0.24511743)
+use_collision = true
+size = Vector3(3.3166347, 1.1971436, 2.9121704)
+material = ExtResource("4_qp5ks")
+
+[node name="Player" parent="." instance=ExtResource("5_mpyo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.852146, 0.49999905, -4.328367)
