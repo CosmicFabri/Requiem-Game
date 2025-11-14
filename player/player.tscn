@@ -8,6 +8,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u315g"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_rkbax")
 
@@ -49,3 +50,10 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_yw30f")
+
+[node name="HeartsContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+offset_left = 33.0
+offset_top = 163.0
+offset_right = 1201.0
+offset_bottom = 278.0

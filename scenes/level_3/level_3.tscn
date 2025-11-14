@@ -1,11 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpqvmc7qt8xut"]
+[gd_scene load_steps=10 format=3 uid="uid://bpqvmc7qt8xut"]
 
 [ext_resource type="Script" uid="uid://bed4ohrualxce" path="res://scenes/level_3/level_3.gd" id="1_xym6k"]
-[ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="2_qaghj"]
 [ext_resource type="Material" uid="uid://spdpie6nlr1q" path="res://scenes/level_3/assets/bridges.tres" id="3_6nj04"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="3_uu53k"]
 [ext_resource type="PackedScene" uid="uid://cv1suuehjgrnc" path="res://mobs/mob_3/devil.tscn" id="4_2pgml"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_us02b"]
+[ext_resource type="AudioStream" uid="uid://d12k6meui8ogy" path="res://scenes/level_3/assets/通常戦闘 - Atlus Sound Team.mp3" id="7_2pgml"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xiq5r"]
 
@@ -33,9 +33,6 @@ volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
 [node name="Level3" type="Node3D"]
 script = ExtResource("1_xym6k")
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("2_qaghj")]
-transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, -4.6360183, 0.73576784, -17.733292)
-
 [node name="KillPlane" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -8.880931, -6.5)
 collision_mask = 3
@@ -61,6 +58,10 @@ offset_right = 256.0
 offset_bottom = 101.0
 theme_override_font_sizes/font_size = 60
 text = "Score: 0"
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.946074, 0, -0.32395053, 0, 1, 0, 0.32395053, 0, 0.946074, -4.445299, 0, -16.814968)
 
 [node name="MobSpawner3D2" parent="." groups=["mob_spawners"] instance=ExtResource("3_uu53k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4815462, 1.7924166, 43.478405)
@@ -367,5 +368,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1451552, 8.420381, 11.4023
 use_collision = true
 size = Vector3(3.3166347, 1.1971436, 2.9121704)
 material = ExtResource("4_us02b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2pgml")
+volume_db = 0.954
+autoplay = true
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://2gu4gwdbh6qh"]
+[gd_scene load_steps=10 format=3 uid="uid://2gu4gwdbh6qh"]
 
 [ext_resource type="Script" uid="uid://dgbitl7ggscot" path="res://scenes/level_1/level_1.gd" id="1_jr17i"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="2_nubdk"]
 [ext_resource type="Material" uid="uid://u4l71aqvc3lq" path="res://scenes/level_1/assets/platform.tres" id="3_fxajv"]
 [ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="4_opn7a"]
 [ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="5_e74gk"]
+[ext_resource type="AudioStream" uid="uid://dhi8uivoekdtf" path="res://scenes/level_1/assets/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3" id="6_nubdk"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7jktm"]
 
@@ -27,10 +28,8 @@ fog_height_density = 0.2105
 [node name="Level1" type="Node3D"]
 script = ExtResource("1_jr17i")
 
-[node name="Player" parent="." groups=["player"] instance=ExtResource("5_e74gk")]
-
 [node name="KillPlane" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.3931746, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -44,6 +43,10 @@ offset_right = 256.0
 offset_bottom = 121.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_fc0e3")
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47831774, -0.24)
 
 [node name="MobSpawner3D" parent="." groups=["mob_spawners"] instance=ExtResource("2_nubdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.9503997, -27.9)
@@ -123,5 +126,12 @@ shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_80nbo")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nubdk")
+autoplay = true
+[node name="DeathTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
