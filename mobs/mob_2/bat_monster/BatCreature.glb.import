@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://016343dkhs3q"
-path="res://.godot/imported/BatCreature.glb-c3b4ea8c07c11be64c65c84c72a975da.scn"
+path="res://.godot/imported/BatCreature.glb-b69909e4f3984af840a96eeebab1cf63.scn"
 
 [deps]
 
-source_file="res://mobs/mob_2/BatCreature.glb"
-dest_files=["res://.godot/imported/BatCreature.glb-c3b4ea8c07c11be64c65c84c72a975da.scn"]
+source_file="res://mobs/mob_2/bat_monster/BatCreature.glb"
+dest_files=["res://.godot/imported/BatCreature.glb-b69909e4f3984af840a96eeebab1cf63.scn"]
 
 [params]
 
