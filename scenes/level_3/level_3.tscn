@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpqvmc7qt8xut"]
+[gd_scene load_steps=10 format=3 uid="uid://bpqvmc7qt8xut"]
 
 [ext_resource type="Script" uid="uid://bed4ohrualxce" path="res://scenes/level_3/level_3.gd" id="1_xym6k"]
 [ext_resource type="Material" uid="uid://spdpie6nlr1q" path="res://scenes/level_3/assets/bridges.tres" id="3_6nj04"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="3_uu53k"]
 [ext_resource type="PackedScene" uid="uid://cv1suuehjgrnc" path="res://mobs/mob_3/devil.tscn" id="4_2pgml"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_us02b"]
+[ext_resource type="AudioStream" uid="uid://d12k6meui8ogy" path="res://scenes/level_3/assets/通常戦闘 - Atlus Sound Team.mp3" id="7_2pgml"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xiq5r"]
 
@@ -367,5 +368,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1451552, 8.420381, 11.4023
 use_collision = true
 size = Vector3(3.3166347, 1.1971436, 2.9121704)
 material = ExtResource("4_us02b")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2pgml")
+volume_db = 0.954
+autoplay = true
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
