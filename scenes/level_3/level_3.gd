@@ -39,7 +39,7 @@ func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)
 	mob.died.connect(func on_mob_died():
 		do_poof(mob.global_position)
+		if local_score >= 5:
+			GameManager.next_level()
 	)
-	if local_score >= 5:
-		GameManager.next_level()
 	do_poof(mob.global_position)

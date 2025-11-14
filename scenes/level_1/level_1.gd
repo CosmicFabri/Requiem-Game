@@ -9,6 +9,7 @@ var local_score = 0
 func _ready():
 	GameManager.current_level_index = 0
 	Player.global_position = spawn_point.global_position
+	Player._update_hearts_display()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	score_label.text = "Score: " + str(GameManager.score)
 	
