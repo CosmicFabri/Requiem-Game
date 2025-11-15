@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0mq54a6en51s"]
+[gd_scene load_steps=8 format=3 uid="uid://c0mq54a6en51s"]
 
 [ext_resource type="Material" uid="uid://ckpp4mol5jtmh" path="res://scenes/level_boss_2/assets/platform.tres" id="1_mxoq0"]
 [ext_resource type="Material" uid="uid://xwcw83cfft3o" path="res://scenes/level_boss_2/assets/bridge.tres" id="2_uqt5e"]
+[ext_resource type="PackedScene" uid="uid://caestr7qj5w4s" path="res://scenes/level_boss_2/assets/cadenas.tscn" id="3_2ntqf"]
+[ext_resource type="PackedScene" uid="uid://b6mhb1gid437f" path="res://scenes/level_boss_2/assets/cadena.tscn" id="4_uqt5e"]
+[ext_resource type="PackedScene" uid="uid://bgeeqkugydr7v" path="res://scenes/level_boss_2/assets/vela.tscn" id="5_aeppx"]
 
 [sub_resource type="Environment" id="Environment_mxoq0"]
 background_mode = 1
@@ -139,3 +142,54 @@ material = ExtResource("2_uqt5e")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.0087976, -6.619831)
 size = Vector3(2, 3, 2)
 material = SubResource("StandardMaterial3D_nbob3")
+
+[node name="Cadenas" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(0.16661382, 0, 0.98602223, 0, 1, 0, -0.98602223, 0, 0.16661382, 8.377582, 1.3841028, 13.947147)
+
+[node name="Cadenas2" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.871735, 8.279547, 10.517078)
+
+[node name="Cadenas3" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.037302, 0.5804012, -1.0177464)
+
+[node name="Cadenas4" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.777254, 4.738145, -8.916615)
+
+[node name="Cadenas5" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(0.85063684, 0, -0.52575374, 0, 1, 0, 0.52575374, 0, 0.85063684, 6.99819, 5.207492, -16.07239)
+
+[node name="Cadenas6" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(0.86162037, 0, 0.5075534, 0, 1, 0, -0.5075534, 0, 0.86162037, -12.403206, 3.6944861, 8.230007)
+
+[node name="Cadenas7" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(1, 0, 0, 0, 0.9898458, 0.14214523, 0, -0.14214523, 0.9898458, 1.8565207, 7.8653197, 20.844198)
+
+[node name="Cadena" parent="." instance=ExtResource("4_uqt5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.415297, 6.1549153, -7.1110163)
+
+[node name="Cadena2" parent="." instance=ExtResource("4_uqt5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.229524, 7.0859647, -10.677378)
+
+[node name="Cadena3" parent="." instance=ExtResource("4_uqt5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91811204, 5.4345326, -15.091124)
+
+[node name="Cadena4" parent="." instance=ExtResource("4_uqt5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.579326, 2.364605, -10.974541)
+
+[node name="Vela" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97094, 0.65870184, 10.349261)
+
+[node name="Vela2" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9682217, 0.65750813, 10.336175)
+
+[node name="Vela3" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.934607, 0.65750813, -0.00048707053)
+
+[node name="Vela4" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9639196, 0.65750813, -10.331515)
+
+[node name="Vela5" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9539976, 0.6575086, -10.300522)
+
+[node name="Vela6" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.909897, 0.65750813, 0.006581664)
