@@ -18,8 +18,7 @@ var death_sounds := [
 	preload("res://player/sounds/deathsound6.mp3"),
 ]
 
-# Sonidos de daño (pueden ser los mismos o distintos)
-# si quieres sonidos distintos, colócalos en otra carpeta
+# Sonidos de daño 
 var hurt_sounds := [
 	preload("res://player/sounds/deathsound1.mp3"),
 	preload("res://player/sounds/deathsound2.mp3"),
