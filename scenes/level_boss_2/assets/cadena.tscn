@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6mhb1gid437f"]
+
+[ext_resource type="PackedScene" uid="uid://dnglfrrjl6m8o" path="res://scenes/level_boss_2/assets/hanging_wall_chains2.glb" id="1_20dfn"]
+
+[node name="Cadena" type="Node3D"]
+
+[node name="hanging_wall_chains2" parent="." instance=ExtResource("1_20dfn")]

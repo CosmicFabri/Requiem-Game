@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnxdpboa45d15"]
+
+[ext_resource type="PackedScene" uid="uid://cajn005qyc6nt" path="res://mobs/boss_2/brutus/brutus_model.tscn" id="1_dp3i4"]
+[ext_resource type="Script" uid="uid://cahn2rfgpn0l7" path="res://mobs/boss_2/brutus.gd" id="1_u6kjp"]
+[ext_resource type="AudioStream" uid="uid://bx3idpeigglls" path="res://mobs/mob_1/mob_take_damage.wav" id="3_uf8d6"]
+[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://mobs/mob_1/mob_ko.wav" id="4_82tbd"]
+[ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mobs/smoke_puff/smoke_puff.tscn" id="5_6u0jf"]
+[ext_resource type="Shader" uid="uid://spi71y1qu06o" path="res://mobs/smoke_puff/material/outer_smoke.gdshader" id="6_tfh2b"]
+[ext_resource type="Shader" uid="uid://0h8qjtcpk0mk" path="res://mobs/smoke_puff/material/inner_smoke.gdshader" id="7_1qw5o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bb0av"]
+radius = 0.70947266
+height = 2.503296
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sllnx"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_tfh2b")
+shader_parameter/albedo = Color(0.937255, 0.698039, 1, 1)
+shader_parameter/progress = 0.0
+shader_parameter/smoothness = 0.2
+shader_parameter/ease = 1.0
+shader_parameter/base_scale = 0.0
+shader_parameter/deformation_scale = 0.0
+shader_parameter/texture_offset = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_511dv"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("7_1qw5o")
+shader_parameter/albedo = Color(1, 0.537255, 0.792157, 1)
+shader_parameter/progress = 0.0
+shader_parameter/smoothness = 0.01
+shader_parameter/ease = 2.0
+shader_parameter/base_scale = 0.0
+shader_parameter/deformation_scale = 0.1999999999970896
+shader_parameter/texture_offset = 0.0
+shader_parameter/fresnel_offset = 1.0
+shader_parameter/global_alpha = 1.0
+
+[node name="Brutus" type="RigidBody3D"]
+script = ExtResource("1_u6kjp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.097839355, 0)
+shape = SubResource("CapsuleShape3D_bb0av")
+
+[node name="Brutus_model" parent="." instance=ExtResource("1_dp3i4")]
+unique_name_in_owner = true
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.0
+one_shot = true
+
+[node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_uf8d6")
+
+[node name="KOSound" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_82tbd")
+
+[node name="smoke_puff" parent="." instance=ExtResource("5_6u0jf")]
+
+[node name="OuterSmoke" parent="smoke_puff" index="0"]
+material_override = SubResource("ShaderMaterial_sllnx")
+
+[node name="InnerSmoke" parent="smoke_puff" index="1"]
+material_override = SubResource("ShaderMaterial_511dv")
+
+[editable path="smoke_puff"]
