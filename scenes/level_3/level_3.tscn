@@ -270,6 +270,8 @@ material = ExtResource("4_us02b")
 [node name="barilla5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.145422, 2.9391222, 9.296813)
 use_collision = true
+collision_layer = 0
+collision_mask = 0
 size = Vector3(0.5, 5, 0.5)
 material = ExtResource("4_us02b")
 
@@ -330,6 +332,8 @@ material = ExtResource("4_us02b")
 [node name="barilla9" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.837786, 2.9391222, 9.514204)
 use_collision = true
+collision_layer = 0
+collision_mask = 0
 size = Vector3(0.5, 5, 0.5)
 material = ExtResource("4_us02b")
 

@@ -3,7 +3,7 @@ extends RigidBody3D
 signal died
 signal score
 
-var health = 3
+var health = 5
 var speed = randf_range(2.0, 4.0)
 
 @onready var devil_model: Node3D = %devil_model
