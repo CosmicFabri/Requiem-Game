@@ -50,7 +50,7 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("4_yw30f")
-volume_db = -9.064
+volume_db = -15.0
 
 [node name="HeartsContainer" type="HBoxContainer" parent="."]
 unique_name_in_owner = true
