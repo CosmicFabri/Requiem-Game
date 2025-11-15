@@ -45,17 +45,19 @@ gravity_scale = 0.0
 script = ExtResource("1_mlp15")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.62819815, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6030723, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.114237666, 0)
 shape = SubResource("SphereShape3D_mlp15")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5889468, -0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6600766, -0.1)
 shape = SubResource("SphereShape3D_8p3xd")
 
 [node name="bat_creature_model" parent="." instance=ExtResource("2_tivin")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.274709, 0)
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
