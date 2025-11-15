@@ -64,15 +64,15 @@ unique_name_in_owner = true
 transform = Transform3D(0.946074, 0, -0.32395053, 0, 1, 0, 0.32395053, 0, 0.946074, -4.445299, 0, -16.814968)
 
 [node name="MobSpawner3D2" parent="." groups=["mob_spawners"] instance=ExtResource("3_uu53k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4815462, 1.7924166, 43.478405)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4815462, 1.552618, 43.478405)
 mob_to_spawn = ExtResource("4_2pgml")
 
 [node name="MobSpawner3D3" parent="." groups=["mob_spawners"] instance=ExtResource("3_uu53k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.268465, 1.938035, 12.061021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.268465, 1.6982365, 12.061021)
 mob_to_spawn = ExtResource("4_2pgml")
 
 [node name="MobSpawner3D4" parent="." groups=["mob_spawners"] instance=ExtResource("3_uu53k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.182625, 2.1096706, 11.435015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.182625, 1.8698721, 11.435015)
 mob_to_spawn = ExtResource("4_2pgml")
 
 [node name="Bridge" type="CSGBox3D" parent="."]
@@ -270,6 +270,8 @@ material = ExtResource("4_us02b")
 [node name="barilla5" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.145422, 2.9391222, 9.296813)
 use_collision = true
+collision_layer = 0
+collision_mask = 0
 size = Vector3(0.5, 5, 0.5)
 material = ExtResource("4_us02b")
 
@@ -330,6 +332,8 @@ material = ExtResource("4_us02b")
 [node name="barilla9" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.837786, 2.9391222, 9.514204)
 use_collision = true
+collision_layer = 0
+collision_mask = 0
 size = Vector3(0.5, 5, 0.5)
 material = ExtResource("4_us02b")
 

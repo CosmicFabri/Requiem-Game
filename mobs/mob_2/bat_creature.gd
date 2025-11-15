@@ -3,7 +3,7 @@ extends RigidBody3D
 signal died
 signal score
 
-var health = 3
+var health = 4
 var speed = randf_range(2.0, 4.0)
 
 @onready var bat_creature_model: Node3D = %bat_creature_model
@@ -40,3 +40,7 @@ func take_damage():
 func _on_timer_timeout():
 	queue_free()
 	died.emit()
+
+func _on_area_3d_body_entered(body):
+	if body is Player:
+		Player.knockback_from(self)
