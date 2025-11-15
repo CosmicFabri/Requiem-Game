@@ -23,6 +23,9 @@ var hurt_sounds := [
 	preload("res://player/sounds/deathsound1.mp3"),
 	preload("res://player/sounds/deathsound2.mp3"),
 	preload("res://player/sounds/deathsound3.mp3"),
+	preload("res://player/sounds/deathsound4.mp3"),
+	preload("res://player/sounds/deathsound5.mp3"),
+	preload("res://player/sounds/deathsound6.mp3"),
 ]
 
 func _ready():
