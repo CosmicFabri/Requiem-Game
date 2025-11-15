@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://2gu4gwdbh6qh"]
+[gd_scene load_steps=9 format=3 uid="uid://2gu4gwdbh6qh"]
 
 [ext_resource type="Script" uid="uid://dgbitl7ggscot" path="res://scenes/level_1/level_1.gd" id="1_jr17i"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="2_nubdk"]
 [ext_resource type="Material" uid="uid://u4l71aqvc3lq" path="res://scenes/level_1/assets/platform.tres" id="3_fxajv"]
 [ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="4_opn7a"]
-[ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="5_e74gk"]
 [ext_resource type="AudioStream" uid="uid://dhi8uivoekdtf" path="res://scenes/level_1/assets/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3" id="6_nubdk"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7jktm"]
@@ -53,6 +52,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.9503997, -27.9)
 
 [node name="MobSpawner3D2" parent="." groups=["mob_spawners"] instance=ExtResource("2_nubdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0.9007994, -28.8)
+
+[node name="MobSpawner3D2" parent="MobSpawner3D2" groups=["mob_spawners"] instance=ExtResource("2_nubdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54364777, -0.09920061, 28.407799)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -130,6 +132,7 @@ environment = SubResource("Environment_80nbo")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_nubdk")
 autoplay = true
+
 [node name="DeathTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true

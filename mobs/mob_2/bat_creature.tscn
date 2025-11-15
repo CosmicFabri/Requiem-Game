@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx7o3eybpjcs6"]
+[gd_scene load_steps=12 format=3 uid="uid://dx7o3eybpjcs6"]
 
 [ext_resource type="Script" uid="uid://drhpnn1jmvyxb" path="res://mobs/mob_2/bat_creature.gd" id="1_mlp15"]
 [ext_resource type="PackedScene" uid="uid://b1mvjhgdhdufy" path="res://mobs/mob_2/bat_monster/bat_creature_model.tscn" id="2_tivin"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mobs/smoke_puff/smoke_puff.tscn" id="5_ynfen"]
 [ext_resource type="Shader" uid="uid://spi71y1qu06o" path="res://mobs/smoke_puff/material/outer_smoke.gdshader" id="6_nbpsr"]
 [ext_resource type="Shader" uid="uid://0h8qjtcpk0mk" path="res://mobs/smoke_puff/material/inner_smoke.gdshader" id="7_ygrkk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mlp15"]
+radius = 0.69444185
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8p3xd"]
 radius = 0.54
@@ -41,6 +44,12 @@ shader_parameter/global_alpha = 0.0
 gravity_scale = 0.0
 script = ExtResource("1_mlp15")
 
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6030723, 0)
+shape = SubResource("SphereShape3D_mlp15")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5889468, -0.1)
 shape = SubResource("SphereShape3D_8p3xd")
@@ -69,6 +78,7 @@ material_override = SubResource("ShaderMaterial_u6f6q")
 [node name="InnerSmoke" parent="smoke_puff" index="1"]
 material_override = SubResource("ShaderMaterial_p2sa2")
 
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="smoke_puff"]

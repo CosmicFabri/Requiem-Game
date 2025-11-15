@@ -18,7 +18,6 @@ func increase_score():
 	GameManager.score += 1
 	local_score += 1
 	score_label.text = "Score: " + str(GameManager.score)
-	print("local_score: ", local_score)
 	
 func do_poof(mob_global_position):
 	const SMOKE_PUFF = preload("uid://cjk3frr43yesb")
@@ -39,7 +38,7 @@ func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)
 	mob.died.connect(func on_mob_died():
 		do_poof(mob.global_position)
+		if local_score >= 15:
+			GameManager.next_level()
 	)
-	if local_score >= 5:
-		GameManager.next_level()
 	do_poof(mob.global_position)

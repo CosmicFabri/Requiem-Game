@@ -3,7 +3,7 @@ extends RigidBody3D
 signal died
 signal score
 
-var health = 3
+var health = 5
 var speed = randf_range(2.0, 4.0)
 
 @onready var devil_model: Node3D = %devil_model
@@ -13,9 +13,8 @@ var speed = randf_range(2.0, 4.0)
 @onready var ko_sound: AudioStreamPlayer3D = %KOSound
 
 func _physics_process(_delta):
-	# Setting the direction to the player's location
 	var direction = global_position.direction_to(Player.global_position)
-	direction.y = 0.0 # Not move up or down
+	direction.y = 0.0
 	linear_velocity = direction * speed
 	devil_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
 
@@ -40,3 +39,7 @@ func take_damage():
 func _on_timer_timeout():
 	queue_free()
 	died.emit()
+
+func _on_area_3d_body_entered(body):
+	if body is Player:
+		Player.knockback_from(self)
