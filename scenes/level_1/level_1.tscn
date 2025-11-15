@@ -55,6 +55,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.9503997, -27.9)
 [node name="MobSpawner3D2" parent="." groups=["mob_spawners"] instance=ExtResource("2_nubdk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31, 0.9007994, -28.8)
 
+[node name="MobSpawner3D2" parent="MobSpawner3D2" groups=["mob_spawners"] instance=ExtResource("2_nubdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54364777, -0.09920061, 28.407799)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 use_collision = true

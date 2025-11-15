@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cogsqx2sl52u8"]
+[gd_scene load_steps=10 format=3 uid="uid://cogsqx2sl52u8"]
 
 [ext_resource type="Script" uid="uid://7rtxu0b8davg" path="res://scenes/level_2/level_2.gd" id="1_t1d0w"]
 [ext_resource type="FontFile" uid="uid://l4x584s8kw6a" path="res://scenes/level_1/assets/pixel_lcd_7.ttf" id="2_nqpmc"]
@@ -61,19 +61,19 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8124475, 0)
 
 [node name="MobSpawner3D" parent="." groups=["mob_spawners"] instance=ExtResource("5_h8027")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.41966, 1.7924166, 33.358204)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.41966, 2.289298, 33.358204)
 mob_to_spawn = ExtResource("6_6fc2c")
 
 [node name="MobSpawner3D2" parent="." groups=["mob_spawners"] instance=ExtResource("5_h8027")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.537363, 1.7924166, 33.358204)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.537363, 2.289298, 33.358204)
 mob_to_spawn = ExtResource("6_6fc2c")
 
 [node name="MobSpawner3D3" parent="." groups=["mob_spawners"] instance=ExtResource("5_h8027")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.537363, 1.938035, -35.62763)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.537363, 2.4349165, -35.62763)
 mob_to_spawn = ExtResource("6_6fc2c")
 
 [node name="MobSpawner3D4" parent="." groups=["mob_spawners"] instance=ExtResource("5_h8027")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.365244, 2.1096706, -35.62763)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.365244, 2.6065521, -35.62763)
 mob_to_spawn = ExtResource("6_6fc2c")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

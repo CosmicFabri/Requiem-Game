@@ -2,7 +2,9 @@ extends CharacterBody3D
 
 # Persistent state
 var spawn_position: Vector3
-var hearts: Array = []
+var hearts = []
+var is_knockback = false
+var knockback_timer = 0.2
 
 @onready var hearts_container = %HeartsContainer
 @onready var death_sfx: AudioStreamPlayer = $DeathSFX
@@ -110,14 +112,27 @@ func _unhandled_input(event):
 		get_tree().quit()
 
 func _physics_process(delta):
-	const SPEED := 5.5
-	var input_dir_2d := Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	var dir_3d := Vector3(input_dir_2d.x, 0.0, input_dir_2d.y)
-	var direction := transform.basis * dir_3d
+	if is_knockback:
+		knockback_timer -= delta
+
+		# Apply gravity
+		velocity.y -= 20 * delta
+
+		move_and_slide()
+
+		if knockback_timer <= 0:
+			is_knockback = false
+
+		return
+	
+	const SPEED = 5.5
+	var input_dir_2d = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var dir_3d = Vector3(input_dir_2d.x, 0.0, input_dir_2d.y)
+	var direction = transform.basis * dir_3d
 
 	velocity.x = direction.x * SPEED
 	velocity.z = direction.z * SPEED
-	velocity.y -= 20.0 * delta
+	velocity.y -= 16.0 * delta
 
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = 10.0
@@ -136,3 +151,16 @@ func shoot_bullet():
 	new_bullet.global_transform = %Marker3D.global_transform
 	%Timer.start()
 	%AudioStreamPlayer.play()
+
+func knockback_from(mob):
+	is_knockback = true
+	knockback_timer = 0.2
+
+	var dir = (global_position - mob.global_position)
+	dir.y = 0  # remove vertical component
+	dir = dir.normalized()
+
+	var horizontal = dir * 10.0
+	var upward = Vector3(0, 4.0, 0)
+
+	velocity = horizontal + upward
