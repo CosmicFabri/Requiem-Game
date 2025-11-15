@@ -1,6 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cogsqx2sl52u8"]
 
 [ext_resource type="Script" uid="uid://7rtxu0b8davg" path="res://scenes/level_2/level_2.gd" id="1_t1d0w"]
+[ext_resource type="FontFile" uid="uid://l4x584s8kw6a" path="res://scenes/level_1/assets/pixel_lcd_7.ttf" id="2_nqpmc"]
 [ext_resource type="Material" uid="uid://cd0nv4qseqryn" path="res://scenes/level_2/assets/platform.tres" id="5_6fc2c"]
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="5_h8027"]
 [ext_resource type="PackedScene" uid="uid://dx7o3eybpjcs6" path="res://mobs/mob_2/bat_creature.tscn" id="6_6fc2c"]
@@ -51,6 +52,7 @@ offset_left = 44.0
 offset_top = 44.0
 offset_right = 256.0
 offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_nqpmc")
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_wp567")
 
