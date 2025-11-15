@@ -49,7 +49,6 @@ script = ExtResource("1_6jlfs")
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(0.9376465, 0.34759033, 0, -0.34759033, 0.9376465, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("SphereShape3D_ao1qg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -79,7 +78,6 @@ material_override = SubResource("ShaderMaterial_m7ysg")
 [node name="InnerSmoke" parent="smoke_puff" index="1"]
 material_override = SubResource("ShaderMaterial_wn2st")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

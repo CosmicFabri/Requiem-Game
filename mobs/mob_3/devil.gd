@@ -13,9 +13,8 @@ var speed = randf_range(2.0, 4.0)
 @onready var ko_sound: AudioStreamPlayer3D = %KOSound
 
 func _physics_process(_delta):
-	# Setting the direction to the player's location
 	var direction = global_position.direction_to(Player.global_position)
-	direction.y = 0.0 # Not move up or down
+	direction.y = 0.0
 	linear_velocity = direction * speed
 	devil_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
 

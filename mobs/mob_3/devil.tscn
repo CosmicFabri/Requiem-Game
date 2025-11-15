@@ -41,6 +41,7 @@ shader_parameter/fresnel_offset = 0.5
 shader_parameter/global_alpha = 0.0
 
 [node name="Devil" type="RigidBody3D"]
+gravity_scale = 0.0
 script = ExtResource("1_0kagl")
 
 [node name="Area3D" type="Area3D" parent="."]
