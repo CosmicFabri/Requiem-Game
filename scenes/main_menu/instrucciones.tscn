@@ -37,14 +37,15 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_lotqq")
 
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
-offset_left = 617.0
-offset_top = 374.0
-offset_right = 1207.0
-offset_bottom = 734.0
+offset_left = 533.0
+offset_top = 386.0
+offset_right = 1358.0
+offset_bottom = 746.0
 text = "WASD - MOVERTE
 MOUSE- APUNTAR
-CLICK- DERECHO DISPARAR
-NO CAIGAS!!!!!
+CLICK- IZQUIERDO DISPARAR
+LOS ENEMIGOS TRATARAN DE HACERTE CAER
+ ASI QUE NO CAIGAS!!!!!
 "
 label_settings = SubResource("LabelSettings_0lcjo")
 horizontal_alignment = 1
