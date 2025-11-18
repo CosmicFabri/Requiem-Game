@@ -13,6 +13,9 @@ func _ready():
 	
 	for spawner in get_tree().get_nodes_in_group("mob_spawners"):
 		spawner.mob_spawned.connect(_on_mob_spawned)
+		
+	var fade_anim = %FadeIn
+	fade_anim.play("fade_in")
 
 func increase_score():
 	GameManager.score += 1
@@ -37,8 +40,22 @@ func _on_kill_plane_body_entered(body):
 func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)
 	mob.died.connect(func on_mob_died():
+		print("Local score: ", local_score)
 		do_poof(mob.global_position)
+
 		if local_score >= 20:
+			end_level_transition()
+	)
+	
+	do_poof(mob.global_position)
+	
+func end_level_transition():
+	var fade_anim: AnimationPlayer = %FadeOut
+	# When fade finishes, go to the next level
+	fade_anim.animation_finished.connect(func(anim_name):
+		if anim_name == "fade_out":
 			GameManager.next_level()
 	)
-	do_poof(mob.global_position)
+
+	# Start fade
+	fade_anim.play("fade_out")

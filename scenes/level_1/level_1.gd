@@ -11,11 +11,13 @@ func _ready():
 	Player.global_position = spawn_point.global_position
 	Player._update_hearts_display()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	score_label.text = "Score: " + str(GameManager.score)
+	score_label.text = "Score: " + str(GameManager.score)	
 	
 	for spawner in get_tree().get_nodes_in_group("mob_spawners"):
 		spawner.mob_spawned.connect(_on_mob_spawned)
 		
+	var fade_anim = %FadeIn
+	fade_anim.play("fade_in")
 	death_timer.start()
 
 func increase_score():
@@ -43,7 +45,19 @@ func _on_mob_spawned(mob):
 	mob.score.connect(increase_score)
 	mob.died.connect(func on_mob_died():
 		do_poof(mob.global_position)
+
 		if local_score >= 15:
+			end_level_transition()
+	)
+	
+	do_poof(mob.global_position)
+	
+func end_level_transition():
+	var fade_anim: AnimationPlayer = %FadeOut
+	
+	fade_anim.animation_finished.connect(func(anim_name):
+		if anim_name == "fade_out":
 			GameManager.next_level()
 	)
-	do_poof(mob.global_position)
+	
+	fade_anim.play("fade_out")
