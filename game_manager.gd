@@ -28,8 +28,8 @@ func load_level(index):
 	
 func next_level():
 	var next_index = (current_level_index + 1) % levels.size()
-	get_tree().change_scene_to_file(levels[next_index])
 	current_level_index = next_index
+	get_tree().change_scene_to_file(levels[next_index])
 	
 func go_to_main_menu():
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")
