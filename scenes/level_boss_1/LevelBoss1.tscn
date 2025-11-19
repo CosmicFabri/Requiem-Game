@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlqnlpb04ni65"]
+[gd_scene load_steps=9 format=3 uid="uid://dlqnlpb04ni65"]
 
 [ext_resource type="Material" uid="uid://dov7pxl7rul6j" path="res://scenes/level_boss_1/assets/platform.tres" id="1_avk81"]
+[ext_resource type="Script" uid="uid://cpf2dr10txbyd" path="res://scenes/level_boss_1/level_boss_1.gd" id="1_qbbv2"]
 [ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="3_qbbv2"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_qp5ks"]
-[ext_resource type="PackedScene" uid="uid://bogrciqk5gxsx" path="res://player/player.tscn" id="5_mpyo3"]
+[ext_resource type="PackedScene" uid="uid://cdtfq88updsdr" path="res://mobs/boss_1/slime.tscn" id="6_qp5ks"]
+[ext_resource type="AudioStream" uid="uid://dhi8uivoekdtf" path="res://scenes/level_1/assets/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3" id="7_mpyo3"]
 
 [sub_resource type="Environment" id="Environment_v8vk4"]
 background_mode = 1
-background_color = Color(0, 0.8270062, 0.8859088, 1)
+background_color = Color(1, 1, 1, 1)
 ambient_light_source = 2
 ambient_light_color = Color(4.042983e-06, 0.8072216, 0.9303208, 1)
 ambient_light_sky_contribution = 0.31
@@ -26,7 +28,13 @@ volumetric_fog_density = 0.1525
 volumetric_fog_albedo = Color(0.203922, 0.203922, 1, 1)
 volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_v8vk4"]
+font_size = 56
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
 [node name="LevelBoss1" type="Node3D"]
+script = ExtResource("1_qbbv2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v8vk4")
@@ -102,5 +110,51 @@ use_collision = true
 size = Vector3(3.3166347, 1.1971436, 2.9121704)
 material = ExtResource("4_qp5ks")
 
-[node name="Player" parent="." instance=ExtResource("5_mpyo3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.852146, 0.49999905, -4.328367)
+[node name="MuroInvisible" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006591797, 6.5, -10.508959)
+visible = false
+use_collision = true
+collision_layer = 8
+collision_mask = 4
+size = Vector3(20, 14, 1)
+
+[node name="MuroInvisible2" type="CSGBox3D" parent="MuroInvisible"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21.011633)
+size = Vector3(20, 14, 1)
+
+[node name="MuroInvisible3" type="CSGBox3D" parent="MuroInvisible"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10.412166, 0, 10.511633)
+size = Vector3(21, 14, 1)
+
+[node name="MuroInvisible4" type="CSGBox3D" parent="MuroInvisible"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.509789, 0, 10.511633)
+size = Vector3(21, 14, 1)
+
+[node name="Slime" parent="." groups=["mobs"] instance=ExtResource("6_qp5ks")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13022375, 1.6934562, -1.0943499)
+collision_layer = 5
+collision_mask = 9
+
+[node name="ScoreLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = 44.0
+offset_top = 44.0
+offset_right = 256.0
+offset_bottom = 121.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_v8vk4")
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47831774, -0.24)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mpyo3")
+autoplay = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="died" from="Slime" to="." method="_on_slime_died"]
+[connection signal="score" from="Slime" to="." method="increase_score"]
