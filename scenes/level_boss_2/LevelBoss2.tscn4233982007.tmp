@@ -1,0 +1,216 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0mq54a6en51s"]
+
+[ext_resource type="Script" uid="uid://b78nw2hmd6ri2" path="res://scenes/level_boss_2/level_boss_2.gd" id="1_aeppx"]
+[ext_resource type="Material" uid="uid://ckpp4mol5jtmh" path="res://scenes/level_boss_2/assets/platform.tres" id="1_mxoq0"]
+[ext_resource type="Material" uid="uid://xwcw83cfft3o" path="res://scenes/level_boss_2/assets/bridge.tres" id="2_uqt5e"]
+[ext_resource type="PackedScene" uid="uid://caestr7qj5w4s" path="res://scenes/level_boss_2/assets/cadenas.tscn" id="3_2ntqf"]
+[ext_resource type="PackedScene" uid="uid://b6mhb1gid437f" path="res://scenes/level_boss_2/assets/cadena.tscn" id="4_uqt5e"]
+[ext_resource type="PackedScene" uid="uid://bgeeqkugydr7v" path="res://scenes/level_boss_2/assets/vela.tscn" id="5_aeppx"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_aeppx"]
+
+[sub_resource type="Environment" id="Environment_mxoq0"]
+background_mode = 1
+background_color = Color(0.67136467, 0.6786787, 0.6568174, 1)
+ambient_light_sky_contribution = 0.31
+tonemap_mode = 2
+tonemap_exposure = 1.05
+tonemap_white = 0.95
+glow_normalized = true
+glow_intensity = 0.2
+fog_enabled = true
+fog_light_color = Color(0.3331318, 0.31347963, 0.30692697, 1)
+volumetric_fog_density = 0.1525
+volumetric_fog_albedo = Color(0.203922, 0.203922, 1, 1)
+volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbob3"]
+albedo_color = Color(0.1512759, 0.15127614, 0.15127593, 1)
+
+[node name="LevelBoss2" type="Node3D"]
+script = ExtResource("1_aeppx")
+
+[node name="KillPlane" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.4194326, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+shape = SubResource("WorldBoundaryShape3D_aeppx")
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.9565573)
+
+[node name="BrutusSpawnPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(6.8099046, 0, 0, 0, 1, 0, 0, 0, 1, 6.193201, 0.8863492, -7.2220087)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mxoq0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.7071068, -0.6123726, 0.35355315, -0.007935316, 0.493096, 0.86993873, -0.7070623, -0.61794513, 0.34381214, 1665.78, 200, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 40.0
+
+[node name="Platform" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+use_collision = true
+radius = 12.0
+height = 11.0
+sides = 6
+material = ExtResource("1_mxoq0")
+
+[node name="CSGBox3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9562384, 0.1417024, -0.25598547, 0, 0.8748988, 0.4843058, 0.29258868, -0.4631118, 0.8366118, -17.752771, 3.8714104, -0.22875738)
+use_collision = true
+radius = 3.4799805
+height = 3.2192383
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D7" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.90857226, -0.028297683, -0.41676837, -0.18881822, 0.8621419, -0.4701692, 0.37261808, 0.505876, 0.7779751, -8.93379, 5.9810295, -14.689888)
+use_collision = true
+radius = 4.239746
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D8" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.83673733, 0.28891712, -0.46518558, -0.43967915, 0.86083585, -0.2562113, 0.32642457, 0.41891396, 0.84732425, 8, 5.9810295, -14.689888)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D9" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9861499, -0.057742424, -0.15548064, 0, 0.93744004, -0.34814662, 0.1658566, 0.34332475, 0.9244564, 17.617218, 3.7297683, -0.2836991)
+use_collision = true
+radius = 2.3701172
+height = 3.3544922
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D10" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.9765864, -0.2025822, -0.07238437, 0.202028, 0.9792653, -0.014974273, 0.073917024, 0, 0.9972644, 8, 4.762768, 15.113857)
+use_collision = true
+radius = 3.0
+height = 3.4365234
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D11" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.88757634, 0.34503612, 0.30521855, -0.39498436, 0.9109742, 0.11879954, -0.23705608, -0.22600022, 0.94484305, -6.261063, 4.4918685, 14.942426)
+use_collision = true
+radius = 2.0317383
+height = 3.8432617
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D6" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.96806073, 0.1027464, -0.2286957, -0.22331649, 0.76800543, -0.60024786, 0.11396621, 0.6321481, 0.76642084, 0.11602241, 7.1789145, -17.97606)
+use_collision = true
+radius = 2.4541016
+height = 4.4364014
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D12" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.88453215, -0.46647927, 0, 0.46647927, 0.88453215, 0, 0, 0, 1, 16, 7.8839626, -9.217676)
+use_collision = true
+radius = 3.0
+height = 2.7480469
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D13" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.85893667, -0.49442926, -0.1332943, 0.4832832, 0.8687492, -0.10822209, 0.1693075, 0.02853702, 0.9851499, 16, 8.774623, 10.345171)
+use_collision = true
+radius = 4.0737305
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D14" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.93163764, -0.35288885, 0.08672205, 0.21042849, 0.7184623, 0.662972, -0.296262, -0.59940094, 0.7436045, 0, 9.159086, 19.113857)
+use_collision = true
+radius = 3.0
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D15" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.94388264, 0.32531816, 0.057041287, -0.3258487, 0.94542193, 0, -0.053928085, -0.01858683, 0.99837184, -15.22854, 6.641939, 10.353372)
+use_collision = true
+radius = 4.658203
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="CSGBox3D16" type="CSGCylinder3D" parent="."]
+transform = Transform3D(0.76910007, 0.4165435, -0.48474345, -0.5310009, 0.83855486, -0.12191638, 0.3557006, 0.35116518, 0.8661179, -16, 9.159086, -9.241409)
+use_collision = true
+radius = 2.6660156
+height = 1.0
+sides = 6
+material = ExtResource("2_uqt5e")
+
+[node name="BrutusPlatform" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2.0087976, -6.619831)
+size = Vector3(2, 3, 2)
+material = SubResource("StandardMaterial3D_nbob3")
+
+[node name="Cadenas" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(0.16661382, 0, 0.98602223, 0, 1, 0, -0.98602223, 0, 0.16661382, 8.377582, 1.3841028, 13.947147)
+
+[node name="Cadenas2" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.871735, 8.279547, 10.517078)
+
+[node name="Cadenas3" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.037302, 0.5804012, -1.0177464)
+
+[node name="Cadenas4" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.777254, 4.738145, -8.916615)
+
+[node name="Cadenas5" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(0.85063684, 0, -0.52575374, 0, 1, 0, 0.52575374, 0, 0.85063684, 6.99819, 5.207492, -16.07239)
+
+[node name="Cadenas6" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(0.86162037, 0, 0.5075534, 0, 1, 0, -0.5075534, 0, 0.86162037, -12.403206, 3.6944861, 8.230007)
+
+[node name="Cadenas7" parent="." instance=ExtResource("3_2ntqf")]
+transform = Transform3D(1, 0, 0, 0, 0.9898458, 0.14214523, 0, -0.14214523, 0.9898458, 1.8565207, 7.8653197, 20.844198)
+
+[node name="Cadena" parent="." instance=ExtResource("4_uqt5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.415297, 6.1549153, -7.1110163)
+
+[node name="Cadena2" parent="." instance=ExtResource("4_uqt5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.229524, 7.0859647, -10.677378)
+
+[node name="Cadena3" parent="." instance=ExtResource("4_uqt5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91811204, 5.4345326, -15.091124)
+
+[node name="Cadena4" parent="." instance=ExtResource("4_uqt5e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.579326, 2.364605, -10.974541)
+
+[node name="Vela" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97094, 0.65870184, 10.349261)
+
+[node name="Vela2" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9682217, 0.65750813, 10.336175)
+
+[node name="Vela3" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.934607, 0.65750813, -0.00048707053)
+
+[node name="Vela4" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9639196, 0.65750813, -10.331515)
+
+[node name="Vela5" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9539976, 0.6575086, -10.300522)
+
+[node name="Vela6" parent="." instance=ExtResource("5_aeppx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.909897, 0.65750813, 0.006581664)
+
+[connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]

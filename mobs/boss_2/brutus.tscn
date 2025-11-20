@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dnxdpboa45d15"]
+[gd_scene load_steps=12 format=3 uid="uid://dnxdpboa45d15"]
 
 [ext_resource type="PackedScene" uid="uid://cajn005qyc6nt" path="res://mobs/boss_2/brutus/brutus_model.tscn" id="1_dp3i4"]
 [ext_resource type="Script" uid="uid://cahn2rfgpn0l7" path="res://mobs/boss_2/brutus.gd" id="1_u6kjp"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mobs/smoke_puff/smoke_puff.tscn" id="5_6u0jf"]
 [ext_resource type="Shader" uid="uid://spi71y1qu06o" path="res://mobs/smoke_puff/material/outer_smoke.gdshader" id="6_tfh2b"]
 [ext_resource type="Shader" uid="uid://0h8qjtcpk0mk" path="res://mobs/smoke_puff/material/inner_smoke.gdshader" id="7_1qw5o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u6kjp"]
+radius = 0.6347656
+height = 2.496399
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bb0av"]
 radius = 0.70947266
@@ -38,8 +42,15 @@ shader_parameter/texture_offset = 0.0
 shader_parameter/fresnel_offset = 1.0
 shader_parameter/global_alpha = 1.0
 
-[node name="Brutus" type="RigidBody3D"]
+[node name="Brutus" type="CharacterBody3D"]
 script = ExtResource("1_u6kjp")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1.4000137, 0, 0, 0, 1.1090564, 0, 0, 0, 1.4005646, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1133728, 0)
+shape = SubResource("CapsuleShape3D_u6kjp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.097839355, 0)
@@ -51,6 +62,9 @@ unique_name_in_owner = true
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 2.0
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
@@ -68,5 +82,8 @@ material_override = SubResource("ShaderMaterial_sllnx")
 
 [node name="InnerSmoke" parent="smoke_puff" index="1"]
 material_override = SubResource("ShaderMaterial_511dv")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="smoke_puff"]
