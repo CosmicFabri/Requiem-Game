@@ -5,6 +5,7 @@ extends Node3D
 @onready var slime_spawn_point = %SlimeSpawnPoint
 
 const slime = preload("res://mobs/boss_1/slime.tscn")
+var slime_instance: RigidBody3D
 
 var local_score = 0
 
@@ -12,6 +13,7 @@ func _ready():
 	Player.global_position = spawn_point.global_position
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	score_label.text = "Score: " + str(GameManager.score)
+	start_level_transition()
 
 func increase_score():
 	GameManager.score += 10
@@ -32,11 +34,11 @@ func _on_kill_plane_body_entered(body):
 		if GameManager.lives <= 0:
 			GameManager.update_high_score()
 			GameManager.go_to_game_over()
-
+	
 func _on_slime_died() -> void:
-	do_poof($Slime.global_position)
+	do_poof(slime_instance.global_position)
 	increase_score()
-	GameManager.next_level()
+	end_level_transition()
 
 func _on_slime_trigger_body_entered(body):
 	if (!slime_spawn_point): return
@@ -46,8 +48,30 @@ func _on_slime_trigger_body_entered(body):
 		
 	slime_spawn_point.queue_free()
 
-	var slime_instance: RigidBody3D = slime.instantiate()
+	slime_instance = slime.instantiate()
 	add_child(slime_instance)
 	slime_instance.global_position = slime_spawn_point.global_position
 	#slime_instance.global_rotation = slime_spawn_point.global_rotation
 	slime_instance.died.connect(_on_slime_died)
+	
+func start_level_transition():
+	var fade_anim: AnimationPlayer = %FadeIn
+	
+	fade_anim.animation_finished.connect(func(anim_name):
+		if anim_name == "fade_in":
+			pass
+	)
+	
+	fade_anim.play("fade_in")
+	
+func end_level_transition():
+	var fade_anim: AnimationPlayer = %FadeOut
+	# When fade finishes, go to the next level
+	fade_anim.animation_finished.connect(_on_fade_out_finished)
+	
+	# Start fade
+	fade_anim.play("fade_out")
+
+func _on_fade_out_finished(anim_name):
+	if anim_name == "fade_out":
+		GameManager.next_level()
