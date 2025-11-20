@@ -4,7 +4,7 @@ signal died
 signal score
 
 var health = 20
-var speed = 4
+var speed = 3.5
 var jump_force = 8.0
 var is_on_ground = false
 
@@ -14,6 +14,7 @@ var is_on_ground = false
 @onready var hurt_sound: AudioStreamPlayer3D = %HurtSound
 @onready var ko_sound: AudioStreamPlayer3D = %KOSound
 @onready var jump_timer: Timer = Timer.new()
+@onready var attack_timer = %AttackTimer
 
 func _ready():
 	# Configurar timer para saltos
@@ -28,6 +29,7 @@ func _ready():
 	
 	# Bloquear rotación para que no gire
 	lock_rotation = true
+	kill_timer.start()
 
 func _physics_process(_delta):
 	# Setting the direction to the player's location
@@ -88,9 +90,15 @@ func _on_timer_timeout():
 	died.emit()
 
 func _on_area_3d_body_entered(body):
-	if kill_timer.is_stopped() == false:
+	if body != Player: return
+	
+	if kill_timer.is_stopped() == false or attack_timer.is_stopped() == false:
 		return
 		
 	Player.knockback_from(self)
 	Player.remove_heart()
-	kill_timer.start()
+	
+	if GameManager.lives < 1:
+		GameManager.go_to_game_over()
+		
+	attack_timer.start()

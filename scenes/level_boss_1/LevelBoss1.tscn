@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cpf2dr10txbyd" path="res://scenes/level_boss_1/level_boss_1.gd" id="1_qbbv2"]
 [ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="3_qbbv2"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_qp5ks"]
-[ext_resource type="PackedScene" uid="uid://cdtfq88updsdr" path="res://mobs/boss_1/slime.tscn" id="6_qp5ks"]
 [ext_resource type="AudioStream" uid="uid://dhi8uivoekdtf" path="res://scenes/level_1/assets/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3" id="7_mpyo3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m8le3"]
@@ -35,11 +34,14 @@ font_size = 56
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_avk81"]
+size = Vector3(1, 2.921997, 1)
+
 [node name="LevelBoss1" type="Node3D"]
 script = ExtResource("1_qbbv2")
 
 [node name="KillPlane" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.228686, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.4194326, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -139,11 +141,6 @@ size = Vector3(21, 14, 1)
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.509789, 0, 10.511633)
 size = Vector3(21, 14, 1)
 
-[node name="Slime" parent="." groups=["mobs"] instance=ExtResource("6_qp5ks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8373713, 1.6934562, -6.728837)
-collision_layer = 5
-collision_mask = 9
-
 [node name="ScoreLabel" type="Label" parent="."]
 unique_name_in_owner = true
 offset_left = 44.0
@@ -152,6 +149,10 @@ offset_right = 256.0
 offset_bottom = 121.0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_v8vk4")
+
+[node name="SlimeSpawnPoint" type="Marker3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(6.8099046, 0, 0, 0, 1, 0, 0, 0, 1, 6.193201, 0.8863492, -7.2220087)
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 unique_name_in_owner = true
@@ -165,5 +166,12 @@ autoplay = true
 unique_name_in_owner = true
 one_shot = true
 
-[connection signal="died" from="Slime" to="." method="_on_slime_died"]
-[connection signal="score" from="Slime" to="." method="increase_score"]
+[node name="SlimeTrigger" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.7429645, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SlimeTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 15.597092, -9.237488, 1.9565918, 0)
+shape = SubResource("BoxShape3D_avk81")
+
+[connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
+[connection signal="body_entered" from="SlimeTrigger" to="." method="_on_slime_trigger_body_entered"]
