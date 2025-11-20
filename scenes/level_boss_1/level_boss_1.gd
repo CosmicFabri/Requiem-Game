@@ -2,7 +2,10 @@ extends Node3D
 
 @onready var score_label = %ScoreLabel
 @onready var spawn_point = %SpawnPoint
+@onready var new_spawn_point = %NewSpawnPoint
 @onready var slime_spawn_point = %SlimeSpawnPoint
+@onready var csg_box_3d_5 = %CSGBox3D5
+@onready var csg_box_3d_6 = %CSGBox3D6
 
 const slime = preload("res://mobs/boss_1/slime.tscn")
 var slime_instance: RigidBody3D
@@ -47,6 +50,9 @@ func _on_slime_trigger_body_entered(body):
 		return
 		
 	slime_spawn_point.queue_free()
+	spawn_point = new_spawn_point
+	csg_box_3d_5.queue_free()
+	csg_box_3d_6.queue_free()
 
 	slime_instance = slime.instantiate()
 	add_child(slime_instance)
