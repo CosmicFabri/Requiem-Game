@@ -3,6 +3,7 @@ extends Node
 var score = 0
 var lives = 3
 var high_score = 0
+var extra_hearts_remaining = 3
 const SAVE_PATH = "user://save_data.json"
 
 var levels = [

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cogsqx2sl52u8"]
+[gd_scene load_steps=18 format=3 uid="uid://cogsqx2sl52u8"]
 
 [ext_resource type="Script" uid="uid://7rtxu0b8davg" path="res://scenes/level_2/level_2.gd" id="1_t1d0w"]
 [ext_resource type="FontFile" uid="uid://l4x584s8kw6a" path="res://scenes/level_1/assets/pixel_lcd_7.ttf" id="2_nqpmc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dx7o3eybpjcs6" path="res://mobs/mob_2/bat_creature.tscn" id="6_6fc2c"]
 [ext_resource type="Material" uid="uid://bh8vpj4mhvili" path="res://scenes/level_2/assets/bridge.tres" id="6_nqpmc"]
 [ext_resource type="AudioStream" uid="uid://bgc05dm7o0vh3" path="res://scenes/level_2/assets/ULTRA SUNN - Keep Your Eyes Peeled - ULTRA SUNN.mp3" id="7_nqpmc"]
+[ext_resource type="PackedScene" uid="uid://jp1rj20lq54c" path="res://scenes/heart_pickup/heart_pickup.tscn" id="8_n42qb"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6wgyd"]
 
@@ -473,5 +474,8 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_bmd0r")
 }
+
+[node name="HeartPickup" parent="." instance=ExtResource("8_n42qb")]
+transform = Transform3D(3.0325, 0, 0, 0, 2.9431894, 0, 0, 0, 4.177488, -28.620031, 0.50223494, -33.250347)
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]

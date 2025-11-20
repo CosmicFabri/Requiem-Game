@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2gu4gwdbh6qh"]
+[gd_scene load_steps=17 format=3 uid="uid://2gu4gwdbh6qh"]
 
 [ext_resource type="Script" uid="uid://dgbitl7ggscot" path="res://scenes/level_1/level_1.gd" id="1_jr17i"]
 [ext_resource type="FontFile" uid="uid://l4x584s8kw6a" path="res://scenes/level_1/assets/pixel_lcd_7.ttf" id="2_fxajv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://u4l71aqvc3lq" path="res://scenes/level_1/assets/platform.tres" id="3_fxajv"]
 [ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="4_opn7a"]
 [ext_resource type="AudioStream" uid="uid://dhi8uivoekdtf" path="res://scenes/level_1/assets/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3" id="6_nubdk"]
+[ext_resource type="PackedScene" uid="uid://jp1rj20lq54c" path="res://scenes/heart_pickup/heart_pickup.tscn" id="7_fxajv"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7jktm"]
 
@@ -230,5 +231,8 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_bmd0r")
 }
+
+[node name="HeartPickup" parent="." instance=ExtResource("7_fxajv")]
+transform = Transform3D(3.0325, 0, 0, 0, 2.9431894, 0, 0, 0, 4.177488, -31.554468, 0, -15.066661)
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
