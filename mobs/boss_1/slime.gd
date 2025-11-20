@@ -4,12 +4,13 @@ signal died
 signal score
 
 var health = 20
-var speed = randf_range(2.0, 4.0)
+var speed = 4
 var jump_force = 8.0
 var is_on_ground = false
 
 @onready var slime_model: Node3D = %slime_model
 @onready var timer: Timer = %Timer
+@onready var kill_timer = %KillTimer
 @onready var hurt_sound: AudioStreamPlayer3D = %HurtSound
 @onready var ko_sound: AudioStreamPlayer3D = %KOSound
 @onready var jump_timer: Timer = Timer.new()
@@ -85,3 +86,11 @@ func take_damage():
 func _on_timer_timeout():
 	queue_free()
 	died.emit()
+
+func _on_area_3d_body_entered(body):
+	if kill_timer.is_stopped() == false:
+		return
+		
+	Player.knockback_from(self)
+	Player.remove_heart()
+	kill_timer.start()

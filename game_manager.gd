@@ -8,6 +8,7 @@ const SAVE_PATH = "user://save_data.json"
 var levels = [
 	"res://scenes/level_1/level_1.tscn",
 	"res://scenes/level_2/level_2.tscn",
+	"res://scenes/level_boss_1/LevelBoss1.tscn",
 	"res://scenes/level_3/level_3.tscn",
 ]
 

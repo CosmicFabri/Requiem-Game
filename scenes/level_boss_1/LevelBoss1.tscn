@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlqnlpb04ni65"]
+[gd_scene load_steps=10 format=3 uid="uid://dlqnlpb04ni65"]
 
 [ext_resource type="Material" uid="uid://dov7pxl7rul6j" path="res://scenes/level_boss_1/assets/platform.tres" id="1_avk81"]
 [ext_resource type="Script" uid="uid://cpf2dr10txbyd" path="res://scenes/level_boss_1/level_boss_1.gd" id="1_qbbv2"]
@@ -6,6 +6,8 @@
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_qp5ks"]
 [ext_resource type="PackedScene" uid="uid://cdtfq88updsdr" path="res://mobs/boss_1/slime.tscn" id="6_qp5ks"]
 [ext_resource type="AudioStream" uid="uid://dhi8uivoekdtf" path="res://scenes/level_1/assets/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3" id="7_mpyo3"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m8le3"]
 
 [sub_resource type="Environment" id="Environment_v8vk4"]
 background_mode = 1
@@ -35,6 +37,13 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="LevelBoss1" type="Node3D"]
 script = ExtResource("1_qbbv2")
+
+[node name="KillPlane" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.228686, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillPlane"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+shape = SubResource("WorldBoundaryShape3D_m8le3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_v8vk4")
@@ -131,7 +140,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.5
 size = Vector3(21, 14, 1)
 
 [node name="Slime" parent="." groups=["mobs"] instance=ExtResource("6_qp5ks")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13022375, 1.6934562, -1.0943499)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8373713, 1.6934562, -6.728837)
 collision_layer = 5
 collision_mask = 9
 
@@ -146,7 +155,7 @@ label_settings = SubResource("LabelSettings_v8vk4")
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47831774, -0.24)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.78978, 1.194629, -4.070245)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mpyo3")
