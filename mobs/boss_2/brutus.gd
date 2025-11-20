@@ -6,24 +6,24 @@ signal score
 var health = 3
 var speed = randf_range(2.0, 4.0)
 
-@onready var bat_model = %bat_model
-@onready var timer = %Timer
+@onready var brutus_model: Node3D = %Brutus_model
+@onready var timer: Timer = %Timer
+@onready var hurt_sound: AudioStreamPlayer3D = %HurtSound
+@onready var ko_sound: AudioStreamPlayer3D = %KOSound
 
-@onready var hurt_sound = %HurtSound
-@onready var ko_sound = %KOSound
 
 func _physics_process(_delta):
 	# Setting the direction to the player's location
 	var direction = global_position.direction_to(Player.global_position)
 	direction.y = 0.0 # Not move up or down
 	linear_velocity = direction * speed
-	bat_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
+	brutus_model.rotation.y = Vector3.FORWARD.signed_angle_to(direction, Vector3.UP) + PI
 
 func take_damage():
 	if health == 0:
 		return
 	
-	bat_model.hurt()
+	brutus_model.hurt()
 	hurt_sound.play()
 	health -= 1
 	
@@ -40,9 +40,3 @@ func take_damage():
 func _on_timer_timeout():
 	queue_free()
 	died.emit()
-
-func _on_area_3d_body_entered(body):
-	if (GameManager.lives < 1):
-		GameManager.go_to_game_over()
-	
-	Player.knockback_from(self)

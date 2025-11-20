@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgeeqkugydr7v"]
+
+[ext_resource type="PackedScene" uid="uid://07i447grlkvy" path="res://scenes/level_boss_2/assets/candle.glb" id="1_radep"]
+
+[node name="Vela" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_radep")]

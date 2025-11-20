@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdtfq88updsdr"]
+[gd_scene load_steps=12 format=3 uid="uid://cdtfq88updsdr"]
 
 [ext_resource type="PackedScene" uid="uid://cj4075ykotq2w" path="res://mobs/boss_1/slime/slime_model.tscn" id="1_grcbd"]
 [ext_resource type="Script" uid="uid://c7um0qwe57sxx" path="res://mobs/boss_1/slime.gd" id="1_hf5d2"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mobs/smoke_puff/smoke_puff.tscn" id="5_rl3sd"]
 [ext_resource type="Shader" uid="uid://spi71y1qu06o" path="res://mobs/smoke_puff/material/outer_smoke.gdshader" id="6_lvtx0"]
 [ext_resource type="Shader" uid="uid://0h8qjtcpk0mk" path="res://mobs/smoke_puff/material/inner_smoke.gdshader" id="7_fp003"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iunhw"]
+radius = 1.1244074
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_grcbd"]
 radius = 1.1
@@ -40,6 +43,12 @@ shader_parameter/global_alpha = 0.5
 [node name="Slime" type="RigidBody3D"]
 script = ExtResource("1_hf5d2")
 
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9621618, 0, 0, 0, 0.9372123, 0, -0.23481512, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_iunhw")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.14447564, 0)
 shape = SubResource("SphereShape3D_grcbd")
@@ -68,6 +77,15 @@ material_override = SubResource("ShaderMaterial_08wxd")
 [node name="InnerSmoke" parent="smoke_puff" index="1"]
 material_override = SubResource("ShaderMaterial_044mv")
 
+[node name="KillTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="smoke_puff"]

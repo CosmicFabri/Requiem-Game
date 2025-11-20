@@ -1,38 +1,20 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqxg455jclquw"]
+[gd_scene load_steps=12 format=3 uid="uid://elr7arfb46yh"]
 
 [ext_resource type="Texture2D" uid="uid://b6v2icoxggd7m" path="res://scenes/main_menu/fondo.jpg" id="1_7vrkn"]
 [ext_resource type="Script" uid="uid://bmhhlq1csa2na" path="res://scenes/main_menu/main_menu.gd" id="1_fu7sn"]
-[ext_resource type="FontFile" uid="uid://khk8qnhbejvw" path="res://scenes/main_menu/Pixelmax-Outline.otf" id="3_uqeha"]
-[ext_resource type="FontFile" uid="uid://2dhwlwq27unh" path="res://scenes/main_menu/Pixelout Personal Use Only.ttf" id="4_wem23"]
-[ext_resource type="AudioStream" uid="uid://7f8mex8sxcat" path="res://scenes/main_menu/Marathon Infinity Theme - Forgotten Soundtracks.mp3" id="5_wem23"]
+[ext_resource type="FontFile" uid="uid://c2qp6qqqfnmn6" path="res://scenes/main_menu/Vaseline Extra.ttf" id="2_fu7sn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jix8l"]
 texture = ExtResource("1_7vrkn")
 modulate_color = Color(0.9713355, 0.9713355, 0.9713355, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhts7"]
-bg_color = Color(0.46542656, 0.084337674, 0.040321056, 1)
-border_color = Color(0.9697438, 0.75095403, 0.55899465, 1)
+bg_color = Color(0.25868803, 0.6816474, 0.5963893, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 0.19607843)
-
-[sub_resource type="Animation" id="Animation_fxajv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FadeRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_nubdk"]
 resource_name = "fade_out"
@@ -49,13 +31,7 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxajv"]
-_data = {
-&"RESET": SubResource("Animation_fxajv"),
-&"fade_out": SubResource("Animation_nubdk")
-}
-
-[sub_resource type="Animation" id="Animation_e74gk"]
+[sub_resource type="Animation" id="Animation_fxajv"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -68,6 +44,12 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxajv"]
+_data = {
+&"RESET": SubResource("Animation_fxajv"),
+&"fade_out": SubResource("Animation_nubdk")
 }
 
 [sub_resource type="Animation" id="Animation_opn7a"]
@@ -83,6 +65,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e74gk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bmd0r"]
@@ -128,8 +125,6 @@ theme_override_constants/separation = 10
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.99496776, 0.99202234, 0.9984059, 1)
-theme_override_fonts/font = ExtResource("3_uqeha")
 theme_override_font_sizes/font_size = 47
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 text = "start game"
@@ -137,8 +132,6 @@ text = "start game"
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.99496776, 0.99202234, 0.9984059, 1)
-theme_override_fonts/font = ExtResource("3_uqeha")
 theme_override_font_sizes/font_size = 47
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 text = "Instrucciones
@@ -147,8 +140,6 @@ text = "Instrucciones
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_color = Color(0.99496776, 0.99202234, 0.9984059, 1)
-theme_override_fonts/font = ExtResource("3_uqeha")
 theme_override_font_sizes/font_size = 47
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 text = "salir"
@@ -160,22 +151,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -469.5
-offset_top = -260.0
-offset_right = 548.5
-offset_bottom = -129.0
+offset_left = -341.5
+offset_top = -280.0
+offset_right = 328.5
+offset_bottom = -149.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.6756499, 0.24170026, 0.23259535, 1)
-theme_override_fonts/font = ExtResource("4_wem23")
-theme_override_font_sizes/font_size = 110
-text = "SOULLESS Requiem"
+theme_override_fonts/font = ExtResource("2_fu7sn")
+theme_override_font_sizes/font_size = 130
+text = "little critters!"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_wem23")
-autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
