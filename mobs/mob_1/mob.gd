@@ -42,6 +42,8 @@ func _on_timer_timeout():
 	died.emit()
 
 func _on_area_3d_body_entered(body):
+	if body != Player: return
+	
 	if (GameManager.lives < 1):
 		GameManager.go_to_game_over()
 	
