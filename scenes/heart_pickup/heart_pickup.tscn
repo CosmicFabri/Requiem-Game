@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://jp1rj20lq54c"]
+
+[ext_resource type="PackedScene" uid="uid://qwd4r7ndtnwd" path="res://assets/heart_pickup.glb" id="1_v2yaa"]
+[ext_resource type="Script" uid="uid://bpavxx42x4rps" path="res://scenes/heart_pickup/heart_pickup.gd" id="2_ds25o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v2yaa"]
+radius = 0.21728516
+height = 0.88500977
+
+[node name="HeartPickup" instance=ExtResource("1_v2yaa")]
+transform = Transform3D(3.0325, 0, 0, 0, 2.9431894, 0, 0, 0, 4.177488, 0, 0, 0)
+script = ExtResource("2_ds25o")
+
+[node name="Mesh" parent="Sketchfab_model/cdb724fa2c21488f8e207069b53e046d_fbx/Object_2/RootNode" index="0"]
+transform = Transform3D(-0.9998424, 1.2463889e-16, -0.017753772, 1.2244538e-16, 1, 1.246389e-16, 0.017753772, 1.2244539e-16, -0.9998424, 0, 0.05, -0.1)
+
+[node name="AnimationPlayer" parent="." index="1"]
+unique_name_in_owner = true
+
+[node name="Area3D" type="Area3D" parent="." index="2"]
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44519043, 0)
+shape = SubResource("CapsuleShape3D_v2yaa")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
