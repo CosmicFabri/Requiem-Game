@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bqxg455jclquw"]
+[gd_scene load_steps=14 format=3 uid="uid://bqxg455jclquw"]
 
 [ext_resource type="Texture2D" uid="uid://b6v2icoxggd7m" path="res://scenes/main_menu/fondo.jpg" id="1_7vrkn"]
-[ext_resource type="Script" uid="uid://dtxhh376ul6fu" path="res://scenes/main_menu/main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://bmhhlq1csa2na" path="res://scenes/main_menu/main_menu.gd" id="1_fu7sn"]
 [ext_resource type="FontFile" uid="uid://khk8qnhbejvw" path="res://scenes/main_menu/Pixelmax-Outline.otf" id="3_uqeha"]
 [ext_resource type="FontFile" uid="uid://2dhwlwq27unh" path="res://scenes/main_menu/Pixelout Personal Use Only.ttf" id="4_wem23"]
 [ext_resource type="AudioStream" uid="uid://7f8mex8sxcat" path="res://scenes/main_menu/Marathon Infinity Theme - Forgotten Soundtracks.mp3" id="5_wem23"]
@@ -18,6 +18,78 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 shadow_color = Color(0, 0, 0, 0.19607843)
+
+[sub_resource type="Animation" id="Animation_fxajv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nubdk"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxajv"]
+_data = {
+&"RESET": SubResource("Animation_fxajv"),
+&"fade_out": SubResource("Animation_nubdk")
+}
+
+[sub_resource type="Animation" id="Animation_e74gk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_opn7a"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmd0r"]
+_data = {
+&"RESET": SubResource("Animation_e74gk"),
+&"fade_in": SubResource("Animation_opn7a")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -104,6 +176,26 @@ vertical_alignment = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_wem23")
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1079.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="FadeOut" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_fxajv")
+}
+
+[node name="FadeIn" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_bmd0r")
+}
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]

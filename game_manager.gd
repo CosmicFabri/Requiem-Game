@@ -3,11 +3,13 @@ extends Node
 var score = 0
 var lives = 3
 var high_score = 0
+var extra_hearts_remaining = 3
 const SAVE_PATH = "user://save_data.json"
 
 var levels = [
 	"res://scenes/level_1/level_1.tscn",
 	"res://scenes/level_2/level_2.tscn",
+	"res://scenes/level_boss_1/LevelBoss1.tscn",
 	"res://scenes/level_3/level_3.tscn",
 ]
 
@@ -28,8 +30,8 @@ func load_level(index):
 	
 func next_level():
 	var next_index = (current_level_index + 1) % levels.size()
-	get_tree().change_scene_to_file(levels[next_index])
 	current_level_index = next_index
+	get_tree().change_scene_to_file(levels[next_index])
 	
 func go_to_main_menu():
 	get_tree().change_scene_to_file("res://scenes/main_menu/main_menu.tscn")

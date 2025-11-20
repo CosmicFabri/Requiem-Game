@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpqvmc7qt8xut"]
+[gd_scene load_steps=17 format=3 uid="uid://bpqvmc7qt8xut"]
 
 [ext_resource type="Script" uid="uid://bed4ohrualxce" path="res://scenes/level_3/level_3.gd" id="1_xym6k"]
 [ext_resource type="FontFile" uid="uid://l4x584s8kw6a" path="res://scenes/level_1/assets/pixel_lcd_7.ttf" id="2_2pgml"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cv1suuehjgrnc" path="res://mobs/mob_3/devil.tscn" id="4_2pgml"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_us02b"]
 [ext_resource type="AudioStream" uid="uid://d12k6meui8ogy" path="res://scenes/level_3/assets/通常戦闘 - Atlus Sound Team.mp3" id="7_2pgml"]
+[ext_resource type="PackedScene" uid="uid://jp1rj20lq54c" path="res://scenes/heart_pickup/heart_pickup.tscn" id="8_wx0db"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_xiq5r"]
 
@@ -30,6 +31,78 @@ fog_height_density = 0.1319
 volumetric_fog_density = 0.1525
 volumetric_fog_albedo = Color(0.203922, 0.203922, 1, 1)
 volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[sub_resource type="Animation" id="Animation_fxajv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nubdk"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxajv"]
+_data = {
+&"RESET": SubResource("Animation_fxajv"),
+&"fade_out": SubResource("Animation_nubdk")
+}
+
+[sub_resource type="Animation" id="Animation_e74gk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_opn7a"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bmd0r"]
+_data = {
+&"RESET": SubResource("Animation_e74gk"),
+&"fade_in": SubResource("Animation_opn7a")
+}
 
 [node name="Level3" type="Node3D"]
 script = ExtResource("1_xym6k")
@@ -379,5 +452,28 @@ material = ExtResource("4_us02b")
 stream = ExtResource("7_2pgml")
 volume_db = 0.954
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 1920.0
+offset_bottom = 1079.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="FadeOut" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_fxajv")
+}
+
+[node name="FadeIn" type="AnimationPlayer" parent="CanvasLayer"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_bmd0r")
+}
+
+[node name="HeartPickup" parent="." instance=ExtResource("8_wx0db")]
+transform = Transform3D(3.0325, 0, 0, 0, 2.9431894, 0, 0, 0, 4.177488, -3.5508535, 0.5310707, 25.997063)
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
