@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://dlqnlpb04ni65"]
 
 [ext_resource type="Material" uid="uid://dov7pxl7rul6j" path="res://scenes/level_boss_1/assets/platform.tres" id="1_avk81"]
-[ext_resource type="Script" uid="uid://cpf2dr10txbyd" path="res://scenes/level_boss_1/level_boss_1.gd" id="1_qbbv2"]
+[ext_resource type="Script" path="res://scenes/level_boss_1/level_boss_1.gd" id="1_qbbv2"]
 [ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="3_qbbv2"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_qp5ks"]
-[ext_resource type="AudioStream" uid="uid://dhi8uivoekdtf" path="res://scenes/level_1/assets/Little Planet - Sonic the Hedgehog CD [OST] - DeoxysPrime.mp3" id="7_mpyo3"]
+[ext_resource type="AudioStream" uid="uid://xesjlbxp8jsj" path="res://scenes/level_boss_1/Never Forgive Me, Never Forget Me.mp3" id="6_m8le3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m8le3"]
 
@@ -158,10 +158,6 @@ transform = Transform3D(6.8099046, 0, 0, 0, 1, 0, 0, 0, 1, 6.193201, 0.8863492, 
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.78978, 1.194629, -4.070245)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_mpyo3")
-autoplay = true
-
 [node name="DeathTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
@@ -172,6 +168,10 @@ transform = Transform3D(1, 0, 0, 0, 1.7429645, 0, 0, 0, 1, 0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SlimeTrigger"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 15.597092, -9.237488, 1.9565918, 0)
 shape = SubResource("BoxShape3D_avk81")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_m8le3")
+autoplay = true
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
 [connection signal="body_entered" from="SlimeTrigger" to="." method="_on_slime_trigger_body_entered"]
