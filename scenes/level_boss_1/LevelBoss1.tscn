@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dlqnlpb04ni65"]
+[gd_scene load_steps=11 format=3 uid="uid://dlqnlpb04ni65"]
 
 [ext_resource type="Material" uid="uid://dov7pxl7rul6j" path="res://scenes/level_boss_1/assets/platform.tres" id="1_avk81"]
 [ext_resource type="Script" path="res://scenes/level_boss_1/level_boss_1.gd" id="1_qbbv2"]
 [ext_resource type="Material" uid="uid://d3ogpy5rd1te0" path="res://scenes/level_1/assets/bridge.tres" id="3_qbbv2"]
 [ext_resource type="Material" uid="uid://cp4gi8r3s3twb" path="res://scenes/level_3/assets/platforms.tres" id="4_qp5ks"]
+[ext_resource type="FontFile" uid="uid://l4x584s8kw6a" path="res://scenes/level_1/assets/pixel_lcd_7.ttf" id="5_m8le3"]
 [ext_resource type="AudioStream" uid="uid://xesjlbxp8jsj" path="res://scenes/level_boss_1/Never Forgive Me, Never Forget Me.mp3" id="6_m8le3"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_m8le3"]
@@ -147,6 +148,7 @@ offset_left = 44.0
 offset_top = 44.0
 offset_right = 256.0
 offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("5_m8le3")
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_v8vk4")
 
