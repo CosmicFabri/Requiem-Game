@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxatonwiypvqg"
+path="res://.godot/imported/Sonic CD (USA) Music_ Boss.mp3-7e465119b5b98c08c3f8974114a825d8.mp3str"
+
+[deps]
+
+source_file="res://scenes/level_boss_1/Sonic CD (USA) Music_ Boss.mp3"
+dest_files=["res://.godot/imported/Sonic CD (USA) Music_ Boss.mp3-7e465119b5b98c08c3f8974114a825d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
