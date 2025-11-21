@@ -151,7 +151,7 @@ one_shot = true
 
 [node name="PlayerTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 4.5
 one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -468,6 +468,48 @@ libraries = {
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_cb3il")
 autoplay = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8637213, 0, -6.4311676, 0, 4.2698474, 0, 0.50396997, 0, 11.021959, 9.289658, 2.866396, 5.494345)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8637213, 0, -6.4311676, 0, 4.2698474, 0, 0.50396997, 0, 11.021959, -9.279174, 2.866396, -5.2069306)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(0.003141639, 0, -12.760952, 0, 4.2698464, 0, 0.99999505, 0, 0.040090717, 0.21469402, 2.617097, -10.803054)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+transform = Transform3D(0.003141639, 0, -12.760952, 0, 4.2698464, 0, 0.99999505, 0, 0.040090717, 0.028460264, 2.6116276, 10.862247)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8617709, 0, 6.473635, 0, 4.2698474, 0, -0.5072979, 0, 10.99707, 9.099234, 2.866396, -4.9806695)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8617709, 0, 6.473635, 0, 4.2698474, 0, -0.5072979, 0, 10.99707, -9.300322, 2.866396, 5.3590713)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

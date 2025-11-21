@@ -27,12 +27,6 @@ func _on_area_3d_body_entered(body):
 		if pickup_sfx:
 			pickup_sfx.play()
 
-		# Opcional: ocultar modelo y colisión mientras suena el audio
-		if has_node("Area3D/CollisionShape3D"):
-			$"Area3D/CollisionShape3D".disabled = true
-		if has_node("MeshInstance3D"):
-			$"MeshInstance3D".visible = false
-
 		# Esperar un poco para que el sonido no se corte
 		await get_tree().create_timer(0.5).timeout
 		queue_free()
