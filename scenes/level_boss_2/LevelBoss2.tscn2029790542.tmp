@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0mq54a6en51s"]
+[gd_scene load_steps=17 format=3 uid="uid://c0mq54a6en51s"]
 
 [ext_resource type="Script" uid="uid://b78nw2hmd6ri2" path="res://scenes/level_boss_2/level_boss_2.gd" id="1_aeppx"]
 [ext_resource type="Material" uid="uid://ckpp4mol5jtmh" path="res://scenes/level_boss_2/assets/platform.tres" id="1_mxoq0"]
@@ -28,16 +28,6 @@ fog_light_color = Color(0.3331318, 0.31347963, 0.30692697, 1)
 volumetric_fog_density = 0.1525
 volumetric_fog_albedo = Color(0.203922, 0.203922, 1, 1)
 volumetric_fog_emission = Color(0.0431373, 0.0431373, 0.0431373, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_aeppx"]
-top_radius = 0.0
-height = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aeppx"]
-albedo_color = Color(0.2231029, 0.2231029, 0.22310287, 1)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_754ie"]
-height = 2.4450684
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbob3"]
 albedo_color = Color(0.1512759, 0.15127614, 0.15127593, 1)
@@ -146,11 +136,6 @@ unique_name_in_owner = true
 wait_time = 3.0
 one_shot = true
 
-[node name="PlayerTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 5.0
-one_shot = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mxoq0")
 
@@ -158,128 +143,6 @@ environment = SubResource("Environment_mxoq0")
 transform = Transform3D(0.7071068, -0.6123726, 0.35355315, -0.007935316, 0.493096, 0.86993873, -0.7070623, -0.61794513, 0.34381214, 1665.78, 200, 0)
 shadow_enabled = true
 directional_shadow_max_distance = 40.0
-
-[node name="Spike5" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, -5.928973, 0.27411795, 7.3414335)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
-
-[node name="Spike4" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, -7.7114124, 0.24688447, 0.050784588)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
-
-[node name="Spike3" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, 6.343521, 0.25263095, 3.2758765)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-skeleton = NodePath("../../Spike3")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
-
-[node name="Spike2" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 2.8138146, 0, 7.9517117)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
-
-[node name="Spike6" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, -5.928973, 0.2321806, -6.428339)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
-
-[node name="Spike7" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, 6.8965397, 0.28368688, -2.2807713)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
-
-[node name="Spike8" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, 3.559041, 0.2602334, -6.4350767)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
-
-[node name="Spike9" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, -3.5532408, 0.23308635, -2.1844401)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
-
-[node name="Spike10" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, 3.0746188, 0.27390862, -0.5226474)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
-
-[node name="Spike1" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -3.3879848, 0, 3.9758558)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Spike1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
-mesh = SubResource("CylinderMesh_aeppx")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Spike1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
-shape = SubResource("CylinderShape3D_754ie")
 
 [node name="Platform" type="CSGCylinder3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
@@ -464,4 +327,3 @@ libraries = {
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
-[connection signal="timeout" from="PlayerTimer" to="." method="_on_player_timer_timeout"]

@@ -11,6 +11,7 @@ var levels = [
 	"res://scenes/level_2/level_2.tscn",
 	"res://scenes/level_boss_1/LevelBoss1.tscn",
 	"res://scenes/level_3/level_3.tscn",
+	"res://scenes/level_boss_2/LevelBoss2.tscn",
 ]
 
 var current_level_index = 0
