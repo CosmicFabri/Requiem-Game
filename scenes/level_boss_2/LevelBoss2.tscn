@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0mq54a6en51s"]
+[gd_scene load_steps=21 format=3 uid="uid://c0mq54a6en51s"]
 
 [ext_resource type="Script" uid="uid://b78nw2hmd6ri2" path="res://scenes/level_boss_2/level_boss_2.gd" id="1_aeppx"]
 [ext_resource type="Material" uid="uid://ckpp4mol5jtmh" path="res://scenes/level_boss_2/assets/platform.tres" id="1_mxoq0"]
+[ext_resource type="FontFile" uid="uid://l4x584s8kw6a" path="res://scenes/level_1/assets/pixel_lcd_7.ttf" id="2_754ie"]
 [ext_resource type="Material" uid="uid://xwcw83cfft3o" path="res://scenes/level_boss_2/assets/bridge.tres" id="2_uqt5e"]
 [ext_resource type="PackedScene" uid="uid://caestr7qj5w4s" path="res://scenes/level_boss_2/assets/cadenas.tscn" id="3_2ntqf"]
 [ext_resource type="PackedScene" uid="uid://b6mhb1gid437f" path="res://scenes/level_boss_2/assets/cadena.tscn" id="4_uqt5e"]
@@ -138,6 +139,7 @@ offset_left = 44.0
 offset_top = 44.0
 offset_right = 256.0
 offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_754ie")
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_aeppx")
 

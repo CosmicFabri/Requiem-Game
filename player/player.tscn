@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bogrciqk5gxsx"]
+[gd_scene load_steps=7 format=3 uid="uid://bogrciqk5gxsx"]
 
 [ext_resource type="PackedScene" uid="uid://chjrhhjvxun3r" path="res://player/simple_gun/gun_model.glb" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://dewjr15dubhkp" path="res://player/player.gd" id="1_rkbax"]
 [ext_resource type="Texture2D" uid="uid://cuyh8hew637ju" path="res://player/reticle.png" id="3_g1dw6"]
 [ext_resource type="AudioStream" uid="uid://cyo1fejwb86fx" path="res://player/gun-shot-1-7069.mp3" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://c8v1qoxm7yckb" path="res://player/sounds/push.wav" id="5_qjkh3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u315g"]
 
@@ -62,3 +63,7 @@ offset_bottom = 278.0
 [node name="DeathSFX" type="AudioStreamPlayer" parent="."]
 
 [node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+
+[node name="PushSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qjkh3")
+volume_db = 5.248
