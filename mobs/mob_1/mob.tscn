@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dicg6sqqxmf8g" path="res://mobs/mob_1/mob.gd" id="1_6jlfs"]
 [ext_resource type="PackedScene" uid="uid://ckbwymmwlfw3d" path="res://mobs/mob_1/bat/bat_model.tscn" id="1_7b8ug"]
-[ext_resource type="AudioStream" uid="uid://bx3idpeigglls" path="res://mobs/mob_1/mob_take_damage.wav" id="3_mixeo"]
-[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://mobs/mob_1/mob_ko.wav" id="4_jkfaf"]
+[ext_resource type="AudioStream" uid="uid://ugvy1j3atc57" path="res://mobs/mob_1/Bathit.mp3" id="3_ao1qg"]
+[ext_resource type="AudioStream" uid="uid://ceolj6hcnh1pq" path="res://mobs/mob_1/batdeath.mp3" id="4_qur8p"]
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mobs/smoke_puff/smoke_puff.tscn" id="5_ao1qg"]
 [ext_resource type="Shader" uid="uid://spi71y1qu06o" path="res://mobs/smoke_puff/material/outer_smoke.gdshader" id="6_qur8p"]
 [ext_resource type="Shader" uid="uid://0h8qjtcpk0mk" path="res://mobs/smoke_puff/material/inner_smoke.gdshader" id="7_w7wwk"]
@@ -64,11 +64,11 @@ one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_mixeo")
+stream = ExtResource("3_ao1qg")
 
 [node name="KOSound" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("4_jkfaf")
+stream = ExtResource("4_qur8p")
 
 [node name="smoke_puff" parent="." instance=ExtResource("5_ao1qg")]
 

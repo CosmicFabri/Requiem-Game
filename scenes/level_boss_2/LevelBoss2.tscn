@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://c0mq54a6en51s"]
+[gd_scene load_steps=22 format=3 uid="uid://c0mq54a6en51s"]
 
 [ext_resource type="Script" uid="uid://b78nw2hmd6ri2" path="res://scenes/level_boss_2/level_boss_2.gd" id="1_aeppx"]
 [ext_resource type="Material" uid="uid://ckpp4mol5jtmh" path="res://scenes/level_boss_2/assets/platform.tres" id="1_mxoq0"]
+[ext_resource type="FontFile" uid="uid://l4x584s8kw6a" path="res://scenes/level_1/assets/pixel_lcd_7.ttf" id="2_754ie"]
 [ext_resource type="Material" uid="uid://xwcw83cfft3o" path="res://scenes/level_boss_2/assets/bridge.tres" id="2_uqt5e"]
 [ext_resource type="PackedScene" uid="uid://caestr7qj5w4s" path="res://scenes/level_boss_2/assets/cadenas.tscn" id="3_2ntqf"]
 [ext_resource type="PackedScene" uid="uid://b6mhb1gid437f" path="res://scenes/level_boss_2/assets/cadena.tscn" id="4_uqt5e"]
 [ext_resource type="PackedScene" uid="uid://bgeeqkugydr7v" path="res://scenes/level_boss_2/assets/vela.tscn" id="5_aeppx"]
+[ext_resource type="AudioStream" uid="uid://yog8ygxdv1ll" path="res://scenes/level_boss_2/Shin Megami Tensei III_ Nocturne - Normal Battle -Stuck in Amala-.mp3" id="8_cb3il"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_aeppx"]
 
@@ -138,6 +140,7 @@ offset_left = 44.0
 offset_top = 44.0
 offset_right = 256.0
 offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_754ie")
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_aeppx")
 
@@ -148,7 +151,7 @@ one_shot = true
 
 [node name="PlayerTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 5.0
+wait_time = 4.5
 one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -461,6 +464,52 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_bmd0r")
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_cb3il")
+autoplay = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8637213, 0, -6.4311676, 0, 4.2698474, 0, 0.50396997, 0, 11.021959, 9.289658, 2.866396, 5.494345)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8637213, 0, -6.4311676, 0, 4.2698474, 0, 0.50396997, 0, 11.021959, -9.279174, 2.866396, -5.2069306)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(0.003141639, 0, -12.760952, 0, 4.2698464, 0, 0.99999505, 0, 0.040090717, 0.21469402, 2.617097, -10.803054)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+transform = Transform3D(0.003141639, 0, -12.760952, 0, 4.2698464, 0, 0.99999505, 0, 0.040090717, 0.028460264, 2.6116276, 10.862247)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8617709, 0, 6.473635, 0, 4.2698474, 0, -0.5072979, 0, 10.99707, 9.099234, 2.866396, -4.9806695)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(0.8617709, 0, 6.473635, 0, 4.2698474, 0, -0.5072979, 0, 10.99707, -9.300322, 2.866396, 5.3590713)
+visible = false
+use_collision = true
+collision_layer = 12
+collision_mask = 12
 
 [connection signal="body_entered" from="KillPlane" to="." method="_on_kill_plane_body_entered"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

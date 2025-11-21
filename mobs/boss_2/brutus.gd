@@ -15,6 +15,39 @@ signal score
 
 var is_dead := false
 
+# -----------------------------
+# SFX
+# -----------------------------
+
+# Todos menos dying/death para daño:
+var hurt_sounds := [
+	preload("res://mobs/boss_2/SFX/Knight_alert01.wav"),
+	preload("res://mobs/boss_2/SFX/Knight_attack03.wav"),
+	preload("res://mobs/boss_2/SFX/Knight_pain01.wav"),
+	preload("res://mobs/boss_2/SFX/Knight_pain02.wav"),
+	preload("res://mobs/boss_2/SFX/Knight_pain03.wav"),
+]
+
+# Solo los de muerte:
+var death_sounds := [
+	preload("res://mobs/boss_2/SFX/Knight_dying.wav"),
+	preload("res://mobs/boss_2/SFX/Knight_death02.wav"),
+]
+
+func _ready():
+	randomize()
+
+# Pequeña función genérica para no repetir código
+func _play_random_sfx(player: AudioStreamPlayer3D, sounds: Array):
+	if sounds.is_empty() or player == null:
+		return
+	player.stream = sounds[randi() % sounds.size()]
+	player.pitch_scale = randf_range(0.97, 1.03)
+	player.play()
+
+# -----------------------------
+# Activar / desactivar
+# -----------------------------
 func activate():
 	set_physics_process(true)
 	set_collision_layer_value(1, true)
@@ -24,6 +57,9 @@ func deactivate():
 	set_collision_layer_value(1, false)
 	velocity = Vector3.ZERO
 
+# -----------------------------
+# Física principal
+# -----------------------------
 func _physics_process(delta):
 	# If dead → only falling physics works
 	if is_dead:
@@ -54,12 +90,17 @@ func _movement_logic(delta):
 		delta * 8.0
 	)
 
+# -----------------------------
+# Daño y muerte
+# -----------------------------
 func take_damage():
 	if health <= 0:
 		return
 
 	brutus_model.hurt()
-	hurt_sound.play()
+
+	# SFX de daño aleatorio
+	_play_random_sfx(hurt_sound, hurt_sounds)
 
 	health -= 1
 
@@ -71,7 +112,9 @@ func _die():
 		return
 	is_dead = true
 
-	ko_sound.play()
+	# SFX de muerte aleatorio
+	_play_random_sfx(ko_sound, death_sounds)
+
 	score.emit()
 
 	# Stop normal movement and AI
@@ -80,7 +123,6 @@ func _die():
 	# Apply knockback manually (CharacterBody version)
 	var direction = (global_position - Player.global_position).normalized()
 	var upward_force = Vector3.UP * randf_range(3.0, 6.0)
-
 	velocity = direction * 10.0 + upward_force
 
 	# Allow gravity to act during fall
@@ -93,8 +135,11 @@ func _on_timer_timeout():
 	queue_free()
 	died.emit()
 
+# -----------------------------
+# Colisión con el jugador
+# -----------------------------
 func _on_area_3d_body_entered(body):
-	if body != Player: 
+	if body != Player:
 		return
 
 	if health <= 0:

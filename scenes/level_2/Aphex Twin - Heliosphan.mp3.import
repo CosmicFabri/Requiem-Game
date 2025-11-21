@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dievpocb5dsdl"
+path="res://.godot/imported/Aphex Twin - Heliosphan.mp3-d77da9b1b9799835718d0e92af8e104f.mp3str"
+
+[deps]
+
+source_file="res://scenes/level_2/Aphex Twin - Heliosphan.mp3"
+dest_files=["res://.godot/imported/Aphex Twin - Heliosphan.mp3-d77da9b1b9799835718d0e92af8e104f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

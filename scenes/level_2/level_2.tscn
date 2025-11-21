@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brv5ymotpcsly" path="res://mobs/spawner/mob_spawner_3d.tscn" id="5_h8027"]
 [ext_resource type="PackedScene" uid="uid://dx7o3eybpjcs6" path="res://mobs/mob_2/bat_creature.tscn" id="6_6fc2c"]
 [ext_resource type="Material" uid="uid://bh8vpj4mhvili" path="res://scenes/level_2/assets/bridge.tres" id="6_nqpmc"]
-[ext_resource type="AudioStream" uid="uid://bgc05dm7o0vh3" path="res://scenes/level_2/assets/ULTRA SUNN - Keep Your Eyes Peeled - ULTRA SUNN.mp3" id="7_nqpmc"]
+[ext_resource type="AudioStream" uid="uid://bgc05dm7o0vh3" path="res://scenes/level_2/assets/ULTRA SUNN - Keep Your Eyes Peeled - ULTRA SUNN.mp3" id="7_n42qb"]
 [ext_resource type="PackedScene" uid="uid://jp1rj20lq54c" path="res://scenes/heart_pickup/heart_pickup.tscn" id="8_n42qb"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6wgyd"]
@@ -452,7 +452,8 @@ size = Vector3(6, 1, 3)
 material = ExtResource("6_nqpmc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_nqpmc")
+stream = ExtResource("7_n42qb")
+volume_db = 10.0
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

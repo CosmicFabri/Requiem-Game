@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c64si8u2g275j"
+path="res://.godot/imported/Pig Death (Minecraft Sound) - Sound Effect for editing.mp3-9b6cf7b7b80774c7100f115be984d96e.mp3str"
+
+[deps]
+
+source_file="res://mobs/mob_2/Pig Death (Minecraft Sound) - Sound Effect for editing.mp3"
+dest_files=["res://.godot/imported/Pig Death (Minecraft Sound) - Sound Effect for editing.mp3-9b6cf7b7b80774c7100f115be984d96e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

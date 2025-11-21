@@ -43,6 +43,8 @@ shader_parameter/fresnel_offset = 1.0
 shader_parameter/global_alpha = 1.0
 
 [node name="Brutus" type="CharacterBody3D"]
+collision_layer = 13
+collision_mask = 13
 script = ExtResource("1_u6kjp")
 
 [node name="Area3D" type="Area3D" parent="."]

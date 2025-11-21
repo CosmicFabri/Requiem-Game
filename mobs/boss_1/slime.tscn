@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cj4075ykotq2w" path="res://mobs/boss_1/slime/slime_model.tscn" id="1_grcbd"]
 [ext_resource type="Script" uid="uid://c7um0qwe57sxx" path="res://mobs/boss_1/slime.gd" id="1_hf5d2"]
-[ext_resource type="AudioStream" uid="uid://bx3idpeigglls" path="res://mobs/mob_1/mob_take_damage.wav" id="3_pyt7i"]
-[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://mobs/mob_1/mob_ko.wav" id="4_xno7l"]
+[ext_resource type="AudioStream" uid="uid://dy13gj6xw1yoa" path="res://mobs/boss_1/slimehit.wav" id="3_iunhw"]
+[ext_resource type="AudioStream" uid="uid://b71gu12xhaftc" path="res://mobs/boss_1/442772__qubodup__slime-squish.wav" id="4_hc2jk"]
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mobs/smoke_puff/smoke_puff.tscn" id="5_rl3sd"]
 [ext_resource type="Shader" uid="uid://spi71y1qu06o" path="res://mobs/smoke_puff/material/outer_smoke.gdshader" id="6_lvtx0"]
 [ext_resource type="Shader" uid="uid://0h8qjtcpk0mk" path="res://mobs/smoke_puff/material/inner_smoke.gdshader" id="7_fp003"]
@@ -67,11 +67,11 @@ one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_pyt7i")
+stream = ExtResource("3_iunhw")
 
 [node name="KOSound" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("4_xno7l")
+stream = ExtResource("4_hc2jk")
 
 [node name="smoke_puff" parent="." instance=ExtResource("5_rl3sd")]
 
