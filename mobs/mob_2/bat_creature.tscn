@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://drhpnn1jmvyxb" path="res://mobs/mob_2/bat_creature.gd" id="1_mlp15"]
 [ext_resource type="PackedScene" uid="uid://b1mvjhgdhdufy" path="res://mobs/mob_2/bat_monster/bat_creature_model.tscn" id="2_tivin"]
-[ext_resource type="AudioStream" uid="uid://bx3idpeigglls" path="res://mobs/mob_1/mob_take_damage.wav" id="3_4ly1q"]
-[ext_resource type="AudioStream" uid="uid://bjajl884tgyrw" path="res://mobs/mob_1/mob_ko.wav" id="4_2smts"]
+[ext_resource type="AudioStream" uid="uid://jhb4r6788rto" path="res://mobs/mob_2/813531__malikarsyasakani__bone-breakingtearing.wav" id="3_mlp15"]
+[ext_resource type="AudioStream" uid="uid://c64si8u2g275j" path="res://mobs/mob_2/Pig Death (Minecraft Sound) - Sound Effect for editing.mp3" id="4_tivin"]
 [ext_resource type="PackedScene" uid="uid://cjk3frr43yesb" path="res://mobs/smoke_puff/smoke_puff.tscn" id="5_ynfen"]
 [ext_resource type="Shader" uid="uid://spi71y1qu06o" path="res://mobs/smoke_puff/material/outer_smoke.gdshader" id="6_nbpsr"]
 [ext_resource type="Shader" uid="uid://0h8qjtcpk0mk" path="res://mobs/smoke_puff/material/inner_smoke.gdshader" id="7_ygrkk"]
@@ -66,11 +66,11 @@ one_shot = true
 
 [node name="HurtSound" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_4ly1q")
+stream = ExtResource("3_mlp15")
 
 [node name="KOSound" type="AudioStreamPlayer3D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("4_2smts")
+stream = ExtResource("4_tivin")
 
 [node name="smoke_puff" parent="." instance=ExtResource("5_ynfen")]
 

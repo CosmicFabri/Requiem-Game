@@ -453,7 +453,7 @@ material = ExtResource("6_nqpmc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_n42qb")
-volume_db = 9.542
+volume_db = 10.0
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
