@@ -179,8 +179,17 @@ func shoot_bullet():
 	var new_bullet := BULLET_3D.instantiate()
 	%Marker3D.add_child(new_bullet)
 	new_bullet.global_transform = %Marker3D.global_transform
+	
+	# Play recoil animation
+	var anim := $Camera3D/AnimationPlayer
+	if anim.is_playing():
+		anim.stop()      # Permite disparo rápido / auto
+	anim.play("recoil")
+
+	# Rest of the logic
 	%Timer.start()
 	%AudioStreamPlayer.play()
+
 
 # -----------------------------------------
 # Empujón por mob (KNOCKBACK)
