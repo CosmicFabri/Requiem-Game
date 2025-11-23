@@ -128,7 +128,7 @@ shape = SubResource("WorldBoundaryShape3D_aeppx")
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.7931356)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 3.793)
 
 [node name="BrutusSpawnPoint" type="Marker3D" parent="."]
 unique_name_in_owner = true
@@ -154,6 +154,10 @@ unique_name_in_owner = true
 wait_time = 4.5
 one_shot = true
 
+[node name="DamageTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_mxoq0")
 
@@ -163,7 +167,7 @@ shadow_enabled = true
 directional_shadow_max_distance = 40.0
 
 [node name="Spike5" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, -5.928973, 0.27411795, 7.3414335)
+transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, -4.7715797, 0.27411795, 6.88935)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Spike5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
@@ -200,7 +204,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
 shape = SubResource("CylinderShape3D_754ie")
 
 [node name="Spike2" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 2.8138146, 0, 7.9517117)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 3.3545098, 0, 7.0085287)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Spike2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
@@ -212,7 +216,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
 shape = SubResource("CylinderShape3D_754ie")
 
 [node name="Spike6" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, -5.928973, 0.2321806, -6.428339)
+transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, -5.5821047, 0.2321806, -6.428339)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Spike6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
@@ -227,7 +231,7 @@ shape = SubResource("CylinderShape3D_754ie")
 transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, 6.8965397, 0.28368688, -2.2807713)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Spike7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8773286, 0)
 mesh = SubResource("CylinderMesh_aeppx")
 surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
 
@@ -263,7 +267,7 @@ shape = SubResource("CylinderShape3D_754ie")
 transform = Transform3D(0.5625, 0, 0, 0, 0.5625, 0, 0, 0, 0.5625, 3.0746188, 0.27390862, -0.5226474)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Spike10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.92107236, 0)
 mesh = SubResource("CylinderMesh_aeppx")
 surface_material_override/0 = SubResource("StandardMaterial3D_aeppx")
 
@@ -272,7 +276,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.22253418, 0)
 shape = SubResource("CylinderShape3D_754ie")
 
 [node name="Spike1" type="Area3D" parent="." groups=["spikes"]]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -3.3879848, 0, 3.9758558)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, -4.0518327, 0, 3.0506916)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Spike1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9484298, 0)
@@ -389,6 +393,7 @@ sides = 6
 material = ExtResource("2_uqt5e")
 
 [node name="BrutusPlatform" type="CSGBox3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3312047, -6.62)
 use_collision = true
 size = Vector3(2, 3.6444092, 2)
