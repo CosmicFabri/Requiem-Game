@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bogrciqk5gxsx"]
+[gd_scene load_steps=10 format=3 uid="uid://bogrciqk5gxsx"]
 
 [ext_resource type="PackedScene" uid="uid://chjrhhjvxun3r" path="res://player/simple_gun/gun_model.glb" id="1_oul6g"]
 [ext_resource type="Script" uid="uid://dewjr15dubhkp" path="res://player/player.gd" id="1_rkbax"]
@@ -7,6 +7,43 @@
 [ext_resource type="AudioStream" uid="uid://c8v1qoxm7yckb" path="res://player/sounds/push.wav" id="5_qjkh3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u315g"]
+
+[sub_resource type="Animation" id="Animation_qjkh3"]
+resource_name = "recoil"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gun_model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.0569267, 0), Vector3(-0.74984366, 3.025776, 0.07912128), Vector3(0, 3.0569267, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g6k8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gun_model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.0569267, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_boad6"]
+_data = {
+&"RESET": SubResource("Animation_g6k8r"),
+&"recoil": SubResource("Animation_qjkh3")
+}
 
 [node name="Player" type="CharacterBody3D"]
 collision_layer = 3
@@ -22,11 +59,16 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0016055107, 1.41746, -0.017133236)
 
 [node name="gun_model" parent="Camera3D" instance=ExtResource("1_oul6g")]
-transform = Transform3D(-0.27046227, 0, 0.022953833, 0, 0.27143452, 0, -0.022953833, 0, -0.27046227, 0.3383945, -0.15104413, -0.40945846)
+transform = Transform3D(-0.27046224, 0, 0.022953812, 0, 0.27143455, 0, -0.022953808, 0, -0.27046227, 0.3383945, -0.15104413, -0.40945846)
 
 [node name="Marker3D" type="Marker3D" parent="Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35231155, -0.14474916, -0.57239544)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_boad6")
+}
 
 [node name="Reticle" type="TextureRect" parent="."]
 anchors_preset = 8
