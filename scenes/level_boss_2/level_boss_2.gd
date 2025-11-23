@@ -5,6 +5,7 @@ extends Node3D
 @onready var brutus_spawn_point = %BrutusSpawnPoint
 @onready var start_timer = %StartTimer
 @onready var player_timer = %PlayerTimer
+@onready var brutus_platform = %BrutusPlatform
 
 const brutus = preload("res://mobs/boss_2/brutus.tscn")
 var brutus_instance: CharacterBody3D
@@ -87,6 +88,8 @@ func _on_start_timer_timeout():
 
 func _on_player_timer_timeout():
 	Player.activate()
+	brutus_platform.set_collision_layer_value(1, false)
+	brutus_platform.set_collision_mask_value(1, false)
 	
 func _on_spike(body):
 	if body != Player:
