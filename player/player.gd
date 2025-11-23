@@ -9,12 +9,34 @@ var hearts: Array = []
 var is_knockback := false
 var knockback_timer := 0.2
 
+var knockback_resistance := 0.0
+var fire_rate_multiplier := 1.0
+var push_shield_count := 0
+var double_jump_enabled := false
+var double_jump_available := false
+var base_fire_wait := 0.2
+
+# -----------------------------------------
+# Powerups (estados y temporizadores)
+# -----------------------------------------
+var knockback_time_left: float = 0.0
+var fire_rate_time_left: float = 0.0
+var double_jump_time_left: float = 0.0
+
 @onready var hearts_container = %HeartsContainer
 
 # SFX Nodes
 @onready var death_sfx: AudioStreamPlayer = $DeathSFX
 @onready var hurt_sfx: AudioStreamPlayer = $HurtSFX
-@onready var push_sfx: AudioStreamPlayer = $PushSFX   # <-- NUEVO
+@onready var push_sfx: AudioStreamPlayer = $PushSFX
+
+# HUD Nodes
+@onready var powerup_label = %PowerupLabel
+@onready var powerups_hud = %PowerupsHUD
+@onready var knockback_label = %KnockbackLabel
+@onready var fire_rate_label = %FireRateLabel
+@onready var double_jump_label = %DoubleJumpLabel
+@onready var shield_label = %ShieldLabel
 
 # -----------------------------------------
 # Sonidos de muerte
@@ -58,6 +80,9 @@ func _ready():
 
 	get_tree().get_root().add_child(self)
 	self.owner = null
+
+	base_fire_wait = %Timer.wait_time
+	_update_fire_rate()
 
 # -----------------------------------------
 # Estado activo/inactivo
@@ -161,8 +186,14 @@ func _physics_process(delta):
 	velocity.z = direction.z * SPEED
 	velocity.y -= 16.0 * delta
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = 10.0
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			velocity.y = 10.0
+			if double_jump_enabled:
+				double_jump_available = true
+		elif double_jump_enabled and double_jump_available:
+			velocity.y = 10.0
+			double_jump_available = false
 	elif Input.is_action_just_released("jump") and velocity.y > 0:
 		velocity.y = 0
 
@@ -170,6 +201,15 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("shoot") and %Timer.is_stopped():
 		shoot_bullet()
+
+	# Actualizar temporizadores de powerups
+	if knockback_time_left > 0.0:
+		knockback_time_left = max(0.0, knockback_time_left - delta)
+	if fire_rate_time_left > 0.0:
+		fire_rate_time_left = max(0.0, fire_rate_time_left - delta)
+	if double_jump_time_left > 0.0:
+		double_jump_time_left = max(0.0, double_jump_time_left - delta)
+	_update_powerups_hud()
 
 # -----------------------------------------
 # Disparo
@@ -190,13 +230,17 @@ func shoot_bullet():
 	%Timer.start()
 	%AudioStreamPlayer.play()
 
-
 # -----------------------------------------
 # Empujón por mob (KNOCKBACK)
 # -----------------------------------------
 func knockback_from(mob):
+	if push_shield_count > 0:
+		push_shield_count -= 1
+		return
+
 	is_knockback = true
-	knockback_timer = 0.2
+	var resist: float = clamp(knockback_resistance, 0.0, 0.9)
+	knockback_timer = 0.2 * (1.0 - resist)
 
 	# --- SONIDO DE EMPUJÓN ---
 	if !push_sfx.playing:    # evita saturación si recibes varios empujones seguidos
@@ -208,7 +252,104 @@ func knockback_from(mob):
 	dir.y = 0
 	dir = dir.normalized()
 
-	var horizontal = dir * 10.0
-	var upward = Vector3(0, 4.0, 0)
+	var knockback_scale: float = 1.0 - resist
+	var horizontal = dir * 10.0 * knockback_scale
+	var upward = Vector3(0, 4.0, 0) * knockback_scale
 
 	velocity = horizontal + upward
+
+# -----------------------------------------
+# Aplicar powerup: reducción de empuje
+# -----------------------------------------
+func apply_knockback_resistance(duration: float, factor: float):
+	knockback_resistance = max(knockback_resistance, factor)
+	knockback_time_left = duration
+	_update_powerups_hud()
+	await get_tree().create_timer(duration).timeout
+	knockback_resistance = 0.0
+	knockback_time_left = 0.0
+	_update_powerups_hud()
+
+# -----------------------------------------
+# Aplicar powerup: aumento de cadencia
+# -----------------------------------------
+func apply_fire_rate(duration: float, multiplier: float):
+	fire_rate_multiplier = max(fire_rate_multiplier, multiplier)
+	_update_fire_rate()
+	fire_rate_time_left = duration
+	_update_powerups_hud()
+	await get_tree().create_timer(duration).timeout
+	fire_rate_multiplier = 1.0
+	_update_fire_rate()
+	fire_rate_time_left = 0.0
+	_update_powerups_hud()
+
+# -----------------------------------------
+# Aplicar powerup: escudo anti-empuje
+# -----------------------------------------
+func add_push_shield(count: int = 1):
+	push_shield_count += count
+	_update_powerups_hud()
+
+# -----------------------------------------
+# Aplicar powerup: doble salto
+# -----------------------------------------
+func enable_double_jump(duration: float):
+	double_jump_enabled = true
+	double_jump_available = true
+	double_jump_time_left = duration
+	_update_powerups_hud()
+	await get_tree().create_timer(duration).timeout
+	double_jump_enabled = false
+	double_jump_available = false
+	double_jump_time_left = 0.0
+	_update_powerups_hud()
+
+# -----------------------------------------
+# Actualizar cadencia de disparo
+# -----------------------------------------
+func _update_fire_rate():
+	%Timer.wait_time = max(0.05, base_fire_wait / max(1.0, fire_rate_multiplier))
+
+# -----------------------------------------
+# Mostrar notificación de powerup
+# -----------------------------------------
+func show_powerup_toast(text: String, duration: float = 2.0):
+	if powerup_label == null:
+		return
+	powerup_label.text = text
+	powerup_label.visible = true
+	await get_tree().create_timer(duration).timeout
+	powerup_label.visible = false
+
+# -----------------------------------------
+# Actualizar HUD de powerups activos
+# -----------------------------------------
+func _update_powerups_hud():
+	if knockback_label:
+		if knockback_time_left > 0.0:
+			knockback_label.text = "🛡️ " + str(round(knockback_time_left * 10.0) / 10.0) + "s"
+			knockback_label.visible = true
+		else:
+			knockback_label.visible = false
+	
+	if fire_rate_label:
+		if fire_rate_time_left > 0.0:
+			fire_rate_label.text = "🔥 " + str(round(fire_rate_time_left * 10.0) / 10.0) + "s"
+			fire_rate_label.visible = true
+		else:
+			fire_rate_label.visible = false
+	
+	if double_jump_label:
+		if double_jump_time_left > 0.0:
+			double_jump_label.text = "🚀 " + str(round(double_jump_time_left * 10.0) / 10.0) + "s"
+			double_jump_label.visible = true
+		else:
+			double_jump_label.visible = false
+	
+	if shield_label:
+		if push_shield_count > 0:
+			shield_label.text = "⭐ x" + str(push_shield_count)
+			shield_label.visible = true
+		else:
+			shield_label.visible = false

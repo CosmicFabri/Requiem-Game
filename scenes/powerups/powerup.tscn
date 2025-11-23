@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://desbiut0wpjqc"]
+
+[ext_resource type="Script" uid="uid://cgcyd3dqca6mq" path="res://scenes/powerups/powerup.gd" id="1_rpw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_pw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape_pw"]
+radius = 0.25
+
+[node name="Powerup" type="Node3D"]
+script = ExtResource("1_rpw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0.0029767752, 0)
+mesh = SubResource("SphereMesh_pw")
+
+[node name="Area3D" type="Area3D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape_pw")
+
+[node name="PickupSFX" type="AudioStreamPlayer3D" parent="."]
+unique_name_in_owner = true
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
