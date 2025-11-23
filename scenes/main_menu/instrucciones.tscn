@@ -38,13 +38,15 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_lotqq")
 [node name="Label" type="Label" parent="Panel"]
 layout_mode = 0
 offset_left = 617.0
-offset_top = 374.0
+offset_top = 393.0
 offset_right = 1207.0
-offset_bottom = 734.0
-text = "WASD - MOVERTE
-MOUSE- APUNTAR
-CLICK- DERECHO DISPARAR
-NO CAIGAS!!!!!
+offset_bottom = 782.0
+text = "• W, A, S, D: Movimiento
+• Mouse: Apunte
+• Clic Derecho: Disparo
+• Espacio: Salto (mantener para
+un salto más alto)
+¡No caigas o morirás!
 "
 label_settings = SubResource("LabelSettings_0lcjo")
 horizontal_alignment = 1
