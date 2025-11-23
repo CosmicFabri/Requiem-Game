@@ -4,7 +4,7 @@ signal died
 signal score
 
 @export var health := 25
-@export var speed := 3.3
+@export var speed := 3.7
 @export var gravity := 9.8
 
 @onready var brutus_model: Node3D = %Brutus_model
