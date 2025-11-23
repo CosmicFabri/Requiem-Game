@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2gfu6afynild"]
+[gd_scene load_steps=6 format=3 uid="uid://c2gfu6afynild"]
 
 [ext_resource type="Script" uid="uid://bs15bf358xihw" path="res://scenes/game_over/game_over.gd" id="1_3j056"]
-[ext_resource type="Texture2D" uid="uid://ddne1tmamhs3s" path="res://scenes/game_over/gameover.jpg" id="2_anb0t"]
+[ext_resource type="Texture2D" uid="uid://cjsy5m48sbfe7" path="res://scenes/game_over/GameOver-Requiem.png" id="2_p1tbv"]
 [ext_resource type="AudioStream" uid="uid://devutv2h4p00x" path="res://scenes/game_over/Sonic CD - Game Over Music ~ USA - TheCommenter2396.mp3" id="3_p1tbv"]
 [ext_resource type="FontFile" uid="uid://khk8qnhbejvw" path="res://scenes/main_menu/Pixelmax-Outline.otf" id="3_vtso4"]
 [ext_resource type="FontFile" uid="uid://l4x584s8kw6a" path="res://scenes/level_1/assets/pixel_lcd_7.ttf" id="4_vtso4"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p1tbv"]
-texture = ExtResource("2_anb0t")
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -18,11 +15,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3j056")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1912.0
-offset_bottom = 1118.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_p1tbv")
+offset_right = 1920.0
+offset_bottom = 1089.0
+texture = ExtResource("2_p1tbv")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_p1tbv")
@@ -35,18 +32,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -706.0
-offset_top = -387.0
-offset_right = -136.5
-offset_bottom = 28.0
+offset_left = -852.0
+offset_top = -255.0
+offset_right = -66.25
+offset_bottom = 381.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="YouDiedLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_vtso4")
-theme_override_font_sizes/font_size = 100
-text = "You Died!"
+theme_override_constants/separation = 40
+alignment = 1
 
 [node name="HighScoreLabel" type="Label" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -76,6 +69,6 @@ theme_override_colors/icon_hover_pressed_color = Color(0.7764706, 0, 0.2509804, 
 theme_override_colors/icon_disabled_color = Color(0.7393922, 0, 0.3170796, 0.4)
 theme_override_fonts/font = ExtResource("3_vtso4")
 theme_override_font_sizes/font_size = 70
-text = "Volver al menú principal"
+text = "Restart"
 
 [connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
