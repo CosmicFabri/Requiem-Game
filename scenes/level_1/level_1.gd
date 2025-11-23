@@ -45,7 +45,7 @@ func _on_mob_spawned(mob):
 	mob.died.connect(func on_mob_died():
 		do_poof(mob.global_position)
 
-		if local_score >= 15:
+		if local_score >= 5:
 			end_level_transition()
 	)
 	
