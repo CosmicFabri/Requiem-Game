@@ -104,5 +104,5 @@ func _on_spike(body):
 	damage_timer.start()
 	
 	if GameManager.lives < 1:
-		GameManager.load_high_score()
+		GameManager.update_high_score()
 		GameManager.go_to_game_over()
