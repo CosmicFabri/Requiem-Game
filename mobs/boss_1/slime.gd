@@ -99,6 +99,7 @@ func _on_area_3d_body_entered(body):
 	Player.remove_heart()
 	
 	if GameManager.lives < 1:
+		GameManager.update_high_score()
 		GameManager.go_to_game_over()
 		
 	attack_timer.start()
