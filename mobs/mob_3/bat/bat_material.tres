@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ca4fawiyehega"]
+
+[ext_resource type="Texture2D" uid="uid://ddr8smg2n8cbm" path="res://mobs/mob_1/bat/bat_model_bat_palette.png" id="1_3cl3c"]
+
+[resource]
+resource_local_to_scene = true
+resource_name = "bat_mat"
+cull_mode = 2
+albedo_texture = ExtResource("1_3cl3c")
+roughness = 0.42727274
